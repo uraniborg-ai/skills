@@ -1,0 +1,27 @@
+{
+  "name": "@uraniborg-ai/skills",
+  "version": "0.1.0",
+  "description": "Reusable agent skills for scientific and engineering workflows.",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "agent-skills",
+    "agent-skill",
+    "science",
+    "engineering",
+    "research",
+    "uraniborg"
+  ],
+  "files": [
+    "skills",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "format": "UV_CACHE_DIR=.uv-cache uv run ruff format .",
+    "format:check": "UV_CACHE_DIR=.uv-cache uv run ruff format --check .",
+    "smoke": "python3 tests/smoke/check_structure.py"
+  }
+}
