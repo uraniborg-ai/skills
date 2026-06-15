@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB uv"
+  short_description: "Use uv for Python scripts and projects"
+  default_prompt: "Use $ub-uv to run Python work with uv, pyproject-owned Python versions, and script-local dependencies when appropriate."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Proposals"
+  short_description: "Draft and review decision proposals"
+  default_prompt: "Use $ub-proposals to draft, review, audit, or summarize numbered development proposals with clear metadata, decisions, boundaries, non-goals, and acceptance criteria."

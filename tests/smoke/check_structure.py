@@ -7,7 +7,15 @@ import sys
 from pathlib import Path
 
 
-EXPECTED = {"ub-codex", "ub-pdf-reader", "ub-youtube-transcript", "ub-uv", "ub-workspace"}
+EXPECTED = {
+    "ub-codex",
+    "ub-pdf-reader",
+    "ub-proposals",
+    "ub-youtube-transcript",
+    "ub-uv",
+    "ub-writing",
+    "ub-workspace",
+}
 
 
 def main() -> int:

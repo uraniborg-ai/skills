@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Codex"
+  short_description: "Handle Codex sandbox issues"
+  default_prompt: "Use $ub-codex to handle Codex sandbox, permission, escalation, validation, and cache issues."

@@ -4,8 +4,9 @@ Reusable agent skills for scientific and engineering work.
 
 This repository is a small skill catalog for workflows that researchers and
 engineers tend to repeat across many projects: reading PDFs, extracting video
-transcripts, running Python projects with uv, and checking a workspace that
-contains many Git repositories.
+transcripts, running Python projects with uv, maintaining decision proposals,
+writing concise docs, and bootstrapping docs-led workspaces that contain many
+Git repositories.
 
 ## Skills
 
@@ -15,7 +16,9 @@ contains many Git repositories.
 | `ub-youtube-transcript` | Extract YouTube transcripts into structured Markdown. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
-| `ub-workspace` | Inspect and safely synchronize many Git-backed projects in one workspace. |
+| `ub-workspace` | Bootstrap, inspect, and safely synchronize docs-led workspaces. |
+| `ub-proposals` | Draft and review decision-first development proposals. |
+| `ub-writing` | Draft, rewrite, and review concise repo docs. |
 
 ## Install
 
@@ -34,6 +37,8 @@ npx skills add uraniborg-ai/skills \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-workspace \
+  --skill ub-proposals \
+  --skill ub-writing \
   --agent codex
 ```
 
@@ -52,8 +57,7 @@ npx skills update --global
 ## Versioning
 
 The repository uses semantic versions through Git tags and `CHANGELOG.md`.
-Individual `SKILL.md` files include a matching `metadata.version` for humans and
-agents, but the repository tag is the release source of truth.
+The repository tag is the release source of truth.
 
 Install from a Git tag or update from a release reference when you need a pinned
 version in a reproducible environment.
