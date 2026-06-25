@@ -51,6 +51,18 @@ Update installed skills:
 npx skills update --global
 ```
 
+## Development
+
+For contribution and skill authoring rules, read `AGENTS.md` and
+`docs/development.md`. The `docs/` directory holds the project development
+guidance.
+
+Check the skill catalog structure with:
+
+```sh
+npm run smoke
+```
+
 ## Versioning
 
 The repository uses semantic versions through Git tags and `CHANGELOG.md`.
