@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Remove `ub-workspace` from the public skill catalog.
+
 ## 0.1.1
 
 - Expand `ub-uv` with pyproject-owned Python version policy, PEP 723 script

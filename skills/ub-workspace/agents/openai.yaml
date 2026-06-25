@@ -1,4 +1,0 @@
-interface:
-  display_name: "UB Workspace"
-  short_description: "Bootstrap and check docs-led workspaces"
-  default_prompt: "Use $ub-workspace to clone a docs-led workspace, validate its docs/workspace.toml project manifest, bootstrap declared repos, and safely inspect or sync them."

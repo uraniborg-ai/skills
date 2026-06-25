@@ -5,8 +5,7 @@ Reusable agent skills for scientific and engineering work.
 This repository is a small skill catalog for workflows that researchers and
 engineers tend to repeat across many projects: reading PDFs, extracting video
 transcripts, running Python projects with uv, maintaining decision proposals,
-writing concise docs, and bootstrapping docs-led workspaces that contain many
-Git repositories.
+and writing concise docs.
 
 ## Skills
 
@@ -16,7 +15,6 @@ Git repositories.
 | `ub-youtube-transcript` | Extract YouTube transcripts into structured Markdown. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
-| `ub-workspace` | Bootstrap, inspect, and safely synchronize docs-led workspaces. |
 | `ub-proposals` | Draft and review decision-first development proposals. |
 | `ub-writing` | Draft, rewrite, and review concise repo docs. |
 
@@ -28,7 +26,7 @@ List available skills:
 npx skills add uraniborg-ai/skills --list
 ```
 
-Install the default research workspace set for Codex:
+Install the default research skill set for Codex:
 
 ```sh
 npx skills add uraniborg-ai/skills \
@@ -36,7 +34,6 @@ npx skills add uraniborg-ai/skills \
   --skill ub-youtube-transcript \
   --skill ub-uv \
   --skill ub-codex \
-  --skill ub-workspace \
   --skill ub-proposals \
   --skill ub-writing \
   --agent codex
@@ -45,7 +42,7 @@ npx skills add uraniborg-ai/skills \
 Install one skill globally:
 
 ```sh
-npx skills add uraniborg-ai/skills --skill ub-workspace --global --agent codex
+npx skills add uraniborg-ai/skills --skill ub-pdf-reader --global --agent codex
 ```
 
 Update installed skills:

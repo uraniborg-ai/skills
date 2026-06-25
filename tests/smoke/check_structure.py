@@ -14,7 +14,6 @@ EXPECTED = {
     "ub-youtube-transcript",
     "ub-uv",
     "ub-writing",
-    "ub-workspace",
 }
 
 
@@ -23,7 +22,8 @@ def main() -> int:
     skills = root / "skills"
     missing = []
     for name in sorted(EXPECTED):
-        skill = skills / name / "SKILL.md"
+        skill_dir = skills / name
+        skill = skill_dir / "SKILL.md"
         if not skill.exists():
             missing.append(str(skill.relative_to(root)))
             continue
@@ -32,6 +32,16 @@ def main() -> int:
             missing.append(f"{skill.relative_to(root)} missing name: {name}")
         if "description:" not in text:
             missing.append(f"{skill.relative_to(root)} missing description")
+        agent = skill_dir / "agents" / "openai.yaml"
+        if not agent.exists():
+            missing.append(str(agent.relative_to(root)))
+            continue
+        agent_text = agent.read_text(encoding="utf-8")
+        for field in ("display_name", "short_description", "default_prompt"):
+            if f"{field}:" not in agent_text:
+                missing.append(f"{agent.relative_to(root)} missing {field}")
+        if f"${name}" not in agent_text:
+            missing.append(f"{agent.relative_to(root)} default_prompt missing ${name}")
     if missing:
         print("\n".join(missing), file=sys.stderr)
         return 1

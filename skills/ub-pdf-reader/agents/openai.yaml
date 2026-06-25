@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB PDF Reader"
+  short_description: "Inspect and cite PDF evidence"
+  default_prompt: "Use $ub-pdf-reader to search, inspect, render, and cite PDF evidence with page-level references."
