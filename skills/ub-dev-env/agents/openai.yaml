@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Dev Env"
+  short_description: "Plan team development environments"
+  default_prompt: "Use $ub-dev-env to inspect project setup requirements and plan a Homebrew, nvm, uv, and GitHub CLI based development environment."

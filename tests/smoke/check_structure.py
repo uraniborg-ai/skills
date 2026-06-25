@@ -9,6 +9,7 @@ from pathlib import Path
 
 EXPECTED = {
     "ub-codex",
+    "ub-dev-env",
     "ub-pdf-reader",
     "ub-proposals",
     "ub-youtube-transcript",
