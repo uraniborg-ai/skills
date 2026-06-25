@@ -12,6 +12,7 @@ EXPECTED = {
     "ub-dev-env",
     "ub-pdf-reader",
     "ub-proposals",
+    "ub-skill-catalog",
     "ub-youtube-transcript",
     "ub-uv",
     "ub-writing",

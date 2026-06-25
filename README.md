@@ -15,8 +15,10 @@ and writing concise docs.
 | `ub-youtube-transcript` | Extract YouTube transcripts into structured Markdown. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
+| `ub-dev-env` | Plan team development environments. |
 | `ub-proposals` | Draft and review decision-first development proposals. |
 | `ub-writing` | Draft, rewrite, and review concise repo docs. |
+| `ub-skill-catalog` | Maintain and share Uraniborg public skills. |
 
 ## Install
 
@@ -34,8 +36,10 @@ npx skills add uraniborg-ai/skills \
   --skill ub-youtube-transcript \
   --skill ub-uv \
   --skill ub-codex \
+  --skill ub-dev-env \
   --skill ub-proposals \
   --skill ub-writing \
+  --skill ub-skill-catalog \
   --agent codex
 ```
 

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add `ub-skill-catalog` for maintaining, improving, validating, and sharing
+  Uraniborg public skills from the source catalog.
+- Add `ub-dev-env` and `ub-skill-catalog` to README catalog and install
+  examples.
 - Remove `ub-workspace` from the public skill catalog.
 
 ## 0.1.1

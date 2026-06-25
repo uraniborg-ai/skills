@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Skill Catalog"
+  short_description: "Maintain Uraniborg public skills"
+  default_prompt: "Use $ub-skill-catalog to add, update, validate, release, or improve Uraniborg `ub-*` skills from the source skill catalog."
