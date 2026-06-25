@@ -19,6 +19,8 @@ description: One-sentence decision or scope summary.
 author:
   - Author Name
 status: draft
+created_at: 2026-06-25T00:00:00Z
+updated_at: 2026-06-25T00:00:00Z
 ---
 ```
 
@@ -28,8 +30,35 @@ stores a YAML list of PEP-style strings such as `Name` or
 
 Use canonical statuses for new or normalized proposals: `draft`, `proposed`,
 `accepted`, `implemented`, `superseded`, and `rejected`. Legacy `shipped` maps
-to `implemented`; legacy `active` must be interpreted case by case. Do not
-rewrite archived metadata unless the user asks for migration.
+to `implemented` unless the body says a later proposal replaces it; in that case
+flag it as a `superseded` candidate. Legacy `active` must be interpreted case by
+case. Do not rewrite archived metadata unless the user asks for migration.
+
+Use only these standard frontmatter fields for new proposals:
+
+- `title`
+- `description`
+- `author`
+- `status`
+- `created_at`
+- `updated_at`
+
+`created_at` and `updated_at` are required ISO 8601 timestamps. Set both to the
+same timestamp when creating a proposal. Update only `updated_at` after
+substantive edits.
+
+Legacy or project-specific metadata such as `date`, `created`, `updated`,
+`related`, `tags`, `features`, `audience`, `summary`, `implemented_by`,
+`implemented_commits`, `decision_note`, `depends_on`, `supersedes`,
+`superseded_by`, and `follow_up` may be read for compatibility, but do not add
+them to new standard proposals. Put lifecycle relationships, implementation
+evidence, follow-up work, and related links in body sections such as
+`References`, `Implementation Notes`, `Follow-On Work`, and
+`Supersedes`/`Superseded By`.
+
+When a repository has legacy proposals and no shared standard yet, ask the user
+whether to archive the legacy set before starting the standard or migrate the
+legacy set first. Do not choose automatically.
 
 ## Decision Proposal
 
@@ -62,6 +91,9 @@ Equivalent shape for Korean repositories:
 Keep stable domain terms consistent with the local docs. Do not translate
 project-owned terms unless the repository already does.
 
+Keep the shared frontmatter field names and canonical status values in English
+even when section headings and body text are Korean.
+
 ## ADR-Style Proposal
 
 Best for small changes or reference projects.
@@ -93,10 +125,29 @@ Useful sections:
 Do not let task lists replace the decision. The implementation plan should
 follow from the decision, not define it indirectly.
 
+## Legacy Section Mapping
+
+When reviewing or normalizing legacy proposals, map section intent before
+criticizing section names:
+
+- `Goal`, `Summary`, `목표`, and `목적` can describe the proposal job.
+- `Decision`, `결정`, `핵심 판단`, and `구현 결정` can carry the durable choice.
+- `Out Of Scope`, `Out of Scope`, `Non-Goals`, `비목표`, and `범위 제외` can carry
+  exclusions.
+- `Acceptance Criteria`, `Acceptance Scenarios`, `검증 기준`, `완료 기준`, and
+  `성공 기준` can carry observable acceptance.
+- `Next`, `Follow-On Work`, `후속`, and `후속 고려사항` can carry later work.
+
+Keep supporting sections such as `Privacy`, `Storage Boundary`, `Migration`,
+`Risks`, and `References` when they expose decision risk, compatibility,
+security, data loss, or source-of-truth consequences.
+
 ## Common Smells
 
 - Status appears in prose but not frontmatter.
-- Frontmatter is missing `title`, `description`, `author`, or `status`.
+- Frontmatter is missing `title`, `description`, `author`, `status`,
+  `created_at`, or `updated_at`.
+- New standard frontmatter adds custom metadata keys instead of body sections.
 - A new proposal uses a dated filename instead of a numbered id.
 - The document starts with background and hides the decision.
 - `Open Questions` contains work items instead of decisions.
