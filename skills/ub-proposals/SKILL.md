@@ -1,6 +1,6 @@
 ---
 name: ub-proposals
-description: Draft, review, audit, summarize, or maintain development proposals, design proposals, ADR-like decision records, RFCs, implementation plans, scope boundaries, non-goals, acceptance criteria, numbered proposal filenames, PEP-style author metadata, proposal frontmatter, and proposal status conventions across research and engineering repositories.
+description: Draft, review, audit, summarize, refactor, compress, or maintain development proposals, design proposals, ADR-like decision records, RFCs, implementation plans, scope boundaries, non-goals, acceptance criteria, numbered proposal filenames, PEP-style author metadata, proposal frontmatter, terminology maturity, core/supporting content separation, and proposal status conventions across research and engineering repositories.
 ---
 
 # UB Proposals
@@ -28,9 +28,17 @@ proposal history unless the user explicitly asks for migration.
    choice.
 6. Keep the decision near the top. If the proposal intentionally defers the
    decision, say that explicitly and list the open questions.
-7. Separate durable decisions from implementation notes, background, and
-   transient task tracking.
-8. Preserve project terminology and source-of-truth boundaries.
+7. Separate durable decisions from implementation notes, background, examples,
+   roadmap, terminology candidates, and transient task tracking.
+8. When refactoring a proposal, separate core decisions from supporting content.
+   Keep examples, terminology, project roles, and roadmap details only when
+   they are required to understand the decision.
+9. Treat unadopted terms as terminology candidates. Do not define them as
+   official architecture vocabulary; move them to future terminology or spec
+   work when appropriate.
+10. Recheck borrowed philosophies, analogies, and brainstorming scaffold before
+    finalizing. Prefer project-native principles once the decision is clear.
+11. Preserve project terminology and source-of-truth boundaries.
 
 For observed proposal shapes and section mappings, read
 `references/proposal-shapes.md` when creating a new proposal or normalizing an
@@ -104,6 +112,19 @@ Check in this order:
 - `created_at` and `updated_at` are ISO 8601 timestamps.
 - The audience and job are clear.
 - The decision is explicit, or the proposal clearly says it is still shaping.
+- Core vs Supporting Content: core decisions are separated from examples,
+  terminology candidates, roadmap, and project-role context.
+- Terminology Maturity: adopted terms are clearly distinguished from candidate
+  terms that belong in terminology or spec work.
+- Borrowed Philosophy Hygiene: analogies and borrowed philosophies still earn
+  their space in the final document.
+- Compression Pass: repeated claims, overlapping sections, stale scaffold, and
+  examples that belong in requirements are removed or tightened.
+- Implementation Detail vs Direction Guard: architecture direction docs do not
+  include schema, CLI, transport topic, filesystem layout, or deployment detail
+  unless explicitly in scope.
+- Refactoring Review Classification: content cleanup reviews classify material
+  as Keep, Remove, Move, or Compress when useful.
 - Product, data, API, runtime, storage, or ownership boundaries are named.
 - Non-goals prevent likely scope creep.
 - Acceptance scenarios are observable and testable.
@@ -127,6 +148,16 @@ Notes
 - Optional non-blocking observations.
 ```
 
+For refactoring-oriented reviews, especially when the user asks to organize,
+compress, or clean up a proposal, classify content as:
+
+```text
+Keep - Core decision, boundary, risk, or acceptance signal.
+Remove - No longer needed, duplicated, stale, or off-topic.
+Move - Belongs in terminology, spec, roadmap, examples, or project map.
+Compress - Useful but too verbose or repeated.
+```
+
 For drafting or rewrites:
 
 - Follow local section conventions while using the shared metadata default for
@@ -137,6 +168,12 @@ For drafting or rewrites:
 - Prefer deletion or tighter wording before adding new sections.
 - Keep implementation detail only where it supports a decision, tradeoff,
   rollout, migration, or acceptance test.
+- Before finalizing a rewrite, run a compression pass: remove repeated claims,
+  merge overlapping sections, move examples into requirements when useful, and
+  delete scaffold phrases left from brainstorming.
+- For architecture direction documents, exclude schema, CLI contracts,
+  transport topics, filesystem layouts, and deployment plans unless the user has
+  explicitly put those details in scope.
 - Leave open questions as explicit bullets when the user has not decided.
 
 Validate standard proposal frontmatter with:

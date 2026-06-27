@@ -17,7 +17,7 @@ maintaining decision proposals, and writing concise docs.
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
 | `ub-dev-env` | Plan team development environments. |
-| `ub-proposals` | Draft and review decision-first development proposals. |
+| `ub-proposals` | Draft, review, and refactor decision-first development proposals. |
 | `ub-writing` | Draft, rewrite, and review concise repo docs. |
 | `ub-skill-catalog` | Maintain and share Uraniborg public skills. |
 
