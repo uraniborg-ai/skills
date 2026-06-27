@@ -11,6 +11,7 @@ EXPECTED = {
     "ub-codex",
     "ub-dev-env",
     "ub-pdf-reader",
+    "ub-presentation",
     "ub-proposals",
     "ub-skill-catalog",
     "ub-youtube-transcript",
