@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Jupyter"
+  short_description: "Work with Jupyter notebooks safely"
+  default_prompt: "Use $ub-jupyter to inspect, edit, validate, or explicitly execute Jupyter notebooks through project-aware uv workflows."

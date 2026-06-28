@@ -3,15 +3,17 @@
 Reusable agent skills for scientific and engineering work.
 
 This repository is a small skill catalog for workflows that researchers and
-engineers tend to repeat across many projects: reading PDFs, extracting video
-transcripts, producing narrated presentations, running Python projects with uv,
-maintaining decision proposals, and writing concise docs and commit messages.
+engineers tend to repeat across many projects: reading PDFs, working with
+Jupyter notebooks, extracting video transcripts, producing narrated
+presentations, running Python projects with uv, maintaining decision proposals,
+and writing concise docs and commit messages.
 
 ## Skills
 
 | Skill | Purpose |
 | --- | --- |
 | `ub-pdf-reader` | Search, inspect, render, and cite PDF evidence. |
+| `ub-jupyter` | Inspect, edit, validate, and explicitly execute Jupyter notebooks. |
 | `ub-presentation` | Author, caption, and render structured narrated presentations. |
 | `ub-youtube-transcript` | Extract YouTube transcripts into structured Markdown. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
@@ -34,6 +36,7 @@ Install the default research skill set for Codex:
 ```sh
 npx skills add uraniborg-ai/skills \
   --skill ub-pdf-reader \
+  --skill ub-jupyter \
   --skill ub-presentation \
   --skill ub-youtube-transcript \
   --skill ub-uv \
@@ -50,6 +53,7 @@ Install the same set for Claude Code:
 ```sh
 npx skills add uraniborg-ai/skills \
   --skill ub-pdf-reader \
+  --skill ub-jupyter \
   --skill ub-presentation \
   --skill ub-youtube-transcript \
   --skill ub-uv \

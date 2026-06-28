@@ -10,6 +10,7 @@ from pathlib import Path
 EXPECTED = {
     "ub-codex",
     "ub-dev-env",
+    "ub-jupyter",
     "ub-pdf-reader",
     "ub-presentation",
     "ub-proposals",
