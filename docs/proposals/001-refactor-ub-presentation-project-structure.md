@@ -3,9 +3,9 @@ title: Refactor UB Presentation Project Structure
 description: ub-presentation의 발표 자료 파일 역할, 산출물 디렉토리, 생성 파이프라인 경계를 재정의한다.
 author:
   - Hyounggyu Kim <code@hyounggyu.com>
-status: draft
+status: accepted
 created_at: 2026-06-28T00:00:00+09:00
-updated_at: 2026-06-28T00:00:00+09:00
+updated_at: 2026-06-28T10:56:00+09:00
 ---
 
 # Refactor UB Presentation Project Structure
