@@ -35,7 +35,7 @@ any project-local path; `contents/YYYY/NN-title` is only a common convention.
 }
 ```
 
-Paths are resolved relative to the presentation directory.
+Paths are resolved relative to the presentation directory. `output_dir` can point to a temporary build location such as `build/voiceover` or a reusable voiceover asset directory such as `voiceover`.
 
 `slides[].text` is a legacy shape and is rejected by the validator. Use `segment_narration.py` to create an initial `slides[].segments[]` draft from an older file.
 
@@ -44,7 +44,7 @@ Segment text is passed directly to ElevenLabs, including inline audio tags. Keep
 `slides.md` is optional. When present, `generate_subtitles.py` uses `##`
 headings as transcript slide titles.
 
-`generate_subtitles.py` reads `build/voiceover/timeline.json` and writes:
+`generate_subtitles.py` reads `<output_dir>/timeline.json` and writes:
 
 - `youtube.srt`
 - `transcript.md`

@@ -45,3 +45,6 @@ Use these notes when revising spoken narration for a presentation project.
 - After deleting or renumbering slides, check for stale generated artifacts and
   references such as old slide audio, render clips, timeline entries, and SRT
   cues.
+- Decide whether voiceover audio and timelines are reusable presentation assets
+  or temporary build outputs. Render clips and intermediate final videos should
+  remain build artifacts even when audio and timeline files are preserved.

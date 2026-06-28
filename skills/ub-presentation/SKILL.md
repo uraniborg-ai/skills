@@ -21,7 +21,7 @@ narration.json
 transcript.md
 youtube.srt
 images/
-build/voiceover/
+build/voiceover/ or voiceover/
 exports/
 ```
 
@@ -89,7 +89,7 @@ uv run --script skills/ub-presentation/scripts/run_pipeline.py path/to/presentat
 - When revising slide image prompts, use reference assets and pilot images
   before broad regeneration; see `references/image-prompting.md`.
 - Use ElevenLabs v3 audio tags sparingly at the start of segment text, for example `[calm]` or `[thoughtful][slight emphasis]`.
-- Segment audio is generated under `build/voiceover/audio/slide-001/segment-001.mp3` and concatenated into `build/voiceover/audio/slide-001.mp3`.
+- Segment audio is generated under the configured `output_dir`, commonly `build/voiceover` for temporary build artifacts or `voiceover` for reusable presentation assets.
 - Store real API keys only in `.env` or the process environment. Scripts read
   the nearest `.env` found from the presentation directory upward and do not
   override existing environment values.
