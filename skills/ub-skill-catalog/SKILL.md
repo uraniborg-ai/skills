@@ -14,9 +14,10 @@ durable source of truth.
 - Use `https://github.com/uraniborg-ai/skills.git` as the canonical public
   repository URL.
 - Assume permanent `ub-*` source edits are made by Uraniborg team members.
-- Treat `~/.agents/skills/ub-*` and `./.agents/skills/ub-*` as installed
-  copies. Inspect them to understand observed behavior, but do not make durable
-  fixes there.
+- Treat `~/.agents/skills/ub-*`, `./.agents/skills/ub-*`,
+  `~/.claude/skills/ub-*`, and `./.claude/skills/ub-*` as installed copies.
+  Inspect both agent skill locations to understand observed behavior, but do not
+  make durable fixes there.
 - If the user is not acting as a Uraniborg team member, help them capture the
   reproduction, expected behavior, installed skill path, project context, and
   relevant logs for a team request.
@@ -24,7 +25,8 @@ durable source of truth.
 ## Improve Installed UB Skills
 
 1. Identify the observed problem in the installed skill copy or project where
-   the skill was used.
+   the skill was used. Check both `.agents/skills` and `.claude/skills` when
+   they exist.
 2. Ask the user whether they already have the `ub-skills` repository cloned and,
    if so, for its path. Do this before cloning or assuming a source location.
 3. If the user provides a path, verify that it is the source repository before
@@ -40,6 +42,37 @@ durable source of truth.
 7. Update `SKILL.md`, `agents/openai.yaml`, `references/`, `scripts/`,
    `templates/`, README, changelog, and smoke expectations as needed.
 8. Validate the source repository before reporting the work as complete.
+
+## Install, Check, Or Refresh UB Skills
+
+Only install, update, sync, or refresh installed skills when the user explicitly
+asks for that action. Prefer the `npx skills` CLI for catalog discovery and
+installation work.
+
+1. Check the public catalog before installing:
+
+   ```sh
+   npx skills add uraniborg-ai/skills --list
+   ```
+
+2. Summarize installed `ub-*` copies from `~/.agents/.skill-lock.json`,
+   `~/.agents/skills/ub-*`, and `~/.claude/skills/ub-*`. Treat Claude entries as
+   present when they are directories or symlinks.
+3. For a full Codex install, install the public `ub-*` set with `--agent codex`.
+4. For a full Claude Code install, install the same public `ub-*` set with
+   `--agent claude-code`.
+5. For a `ub-skill-catalog`-only install or refresh, install only
+   `ub-skill-catalog` for the requested agent.
+6. For global updates, use:
+
+   ```sh
+   npx skills update --global
+   ```
+
+   Tell the user before running it that this can update globally installed
+   skills beyond `ub-*`.
+7. After an install or update, re-check `.agents/skills` and `.claude/skills`
+   and report which `ub-*` skills are present, missing, or linked.
 
 ## Add Or Update Public Skills
 

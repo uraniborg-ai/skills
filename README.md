@@ -45,17 +45,45 @@ npx skills add uraniborg-ai/skills \
   --agent codex
 ```
 
+Install the same set for Claude Code:
+
+```sh
+npx skills add uraniborg-ai/skills \
+  --skill ub-pdf-reader \
+  --skill ub-presentation \
+  --skill ub-youtube-transcript \
+  --skill ub-uv \
+  --skill ub-codex \
+  --skill ub-dev-env \
+  --skill ub-proposals \
+  --skill ub-writing \
+  --skill ub-skill-catalog \
+  --agent claude-code
+```
+
+Install `ub-skill-catalog` for one agent:
+
+```sh
+npx skills add uraniborg-ai/skills --skill ub-skill-catalog --agent codex
+npx skills add uraniborg-ai/skills --skill ub-skill-catalog --agent claude-code
+```
+
 Install one skill globally:
 
 ```sh
 npx skills add uraniborg-ai/skills --skill ub-pdf-reader --global --agent codex
 ```
 
+Check installed copies by inspecting `~/.agents/.skill-lock.json`,
+`~/.agents/skills`, and `~/.claude/skills`.
+
 Update installed skills:
 
 ```sh
 npx skills update --global
 ```
+
+Global updates can affect installed skills beyond this `ub-*` catalog.
 
 ## Development
 

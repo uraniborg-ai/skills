@@ -16,6 +16,10 @@
   asset-vs-build artifact guidance.
 - Add `ub-skill-catalog` for maintaining, improving, validating, and sharing
   Uraniborg public skills from the source catalog.
+- Teach `ub-skill-catalog` to inspect `.claude/skills` installed copies along
+  with `.agents/skills`.
+- Expand `ub-skill-catalog` with explicit-request-only `npx skills` install,
+  update, and installed-copy check guidance for Codex and Claude Code.
 - Add `ub-dev-env` and `ub-skill-catalog` to README catalog and install
   examples.
 - Expand `ub-proposals` with refactoring, compression, terminology maturity,

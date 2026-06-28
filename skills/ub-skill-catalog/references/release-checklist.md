@@ -35,4 +35,10 @@ release.
 
 - After a release or shared update, tell users to refresh installed skills with
   `npx skills update --global` for global installs or the project-local update
-  command for local installs.
+  command for local installs. Tell users that global updates can affect
+  installed skills beyond `ub-*`.
+- For Codex and Claude Code installs, confirm the public catalog is visible with
+  `npx skills add uraniborg-ai/skills --list`.
+- After refreshing, confirm `ub-*` copies in `~/.agents/skills` and
+  `~/.claude/skills`. Treat Claude entries as present when they are directories
+  or symlinks.
