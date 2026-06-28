@@ -1,4 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "jinja2>=3.1",
+#   "yt-dlp>=2025.1.1",
+# ]
+# ///
 """Fetch a YouTube transcript and save it as structured Markdown."""
 
 from __future__ import annotations

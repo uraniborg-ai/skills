@@ -17,7 +17,7 @@ document before summarizing or analyzing the video.
 1. Extract the transcript with the bundled script when available:
 
    ```sh
-   python3 scripts/fetch_transcript.py "https://www.youtube.com/watch?v=VIDEO_ID" -o transcript.md
+   uv run --script skills/ub-youtube-transcript/scripts/fetch_transcript.py "https://www.youtube.com/watch?v=VIDEO_ID" -o transcript.md
    ```
 
 2. Preserve title, URL, channel, duration, upload date, and timestamps.
@@ -30,8 +30,7 @@ document before summarizing or analyzing the video.
 ## Formats
 
 ```sh
-python3 scripts/fetch_transcript.py URL --format txt
-python3 scripts/fetch_transcript.py URL --format srt
-python3 scripts/fetch_transcript.py URL --format json
+uv run --script skills/ub-youtube-transcript/scripts/fetch_transcript.py URL --format txt
+uv run --script skills/ub-youtube-transcript/scripts/fetch_transcript.py URL --format srt
+uv run --script skills/ub-youtube-transcript/scripts/fetch_transcript.py URL --format json
 ```
-

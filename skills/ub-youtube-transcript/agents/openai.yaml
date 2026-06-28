@@ -1,4 +1,4 @@
 interface:
   display_name: "UB YouTube Transcript"
   short_description: "Extract YouTube transcripts"
-  default_prompt: "Use $ub-youtube-transcript to extract a YouTube transcript into structured Markdown before summarizing or analyzing it."
+  default_prompt: "Use $ub-youtube-transcript to extract a YouTube transcript into structured Markdown with uv before summarizing or analyzing it."

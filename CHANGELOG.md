@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Align `ub-youtube-transcript` with uv script execution and script-local
+  dependencies.
+
 ## 0.2.0 - 2026-06-28
 
 - Add `ub-presentation` for authoring, validating, narrating, captioning, and
