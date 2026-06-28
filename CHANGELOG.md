@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.1 - 2026-06-28
+
 - Align `ub-youtube-transcript` with uv script execution and script-local
   dependencies.
 - Clarify that `ub-writing` applies when creating Git commits and must check
