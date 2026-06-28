@@ -6,6 +6,12 @@
   rendering presentation projects with segmented narration and video exports.
 - Expand `ub-presentation` with script-editing guidance for spoken flow,
   terminology choices, and generated artifact regeneration.
+- Expand `ub-presentation` with image-prompting guidance for reference assets
+  and pilot image regeneration.
+- Add visual consistency and contact-sheet QA guidance for presentation image
+  updates.
+- Expand `ub-presentation` image prompting guidance for recurring character
+  consistency and action-readable operator poses.
 - Add `ub-skill-catalog` for maintaining, improving, validating, and sharing
   Uraniborg public skills from the source catalog.
 - Add `ub-dev-env` and `ub-skill-catalog` to README catalog and install

@@ -86,6 +86,8 @@ uv run --script skills/ub-presentation/scripts/run_pipeline.py path/to/presentat
 - When editing spoken narration, avoid reading dense slide bullets verbatim;
   see `references/script-editing.md` for script, terminology, and regeneration
   guidance.
+- When revising slide image prompts, use reference assets and pilot images
+  before broad regeneration; see `references/image-prompting.md`.
 - Use ElevenLabs v3 audio tags sparingly at the start of segment text, for example `[calm]` or `[thoughtful][slight emphasis]`.
 - Segment audio is generated under `build/voiceover/audio/slide-001/segment-001.mp3` and concatenated into `build/voiceover/audio/slide-001.mp3`.
 - Store real API keys only in `.env` or the process environment. Scripts read
