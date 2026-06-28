@@ -83,6 +83,9 @@ uv run --script skills/ub-presentation/scripts/run_pipeline.py path/to/presentat
 - Keep `timeline.json` paths relative to the presentation directory.
 - Keep generated YouTube captions in `youtube.srt`.
 - Keep the readable script in `transcript.md`.
+- When editing spoken narration, avoid reading dense slide bullets verbatim;
+  see `references/script-editing.md` for script, terminology, and regeneration
+  guidance.
 - Use ElevenLabs v3 audio tags sparingly at the start of segment text, for example `[calm]` or `[thoughtful][slight emphasis]`.
 - Segment audio is generated under `build/voiceover/audio/slide-001/segment-001.mp3` and concatenated into `build/voiceover/audio/slide-001.mp3`.
 - Store real API keys only in `.env` or the process environment. Scripts read

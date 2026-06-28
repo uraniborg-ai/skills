@@ -4,6 +4,8 @@
 
 - Add `ub-presentation` for authoring, validating, narrating, captioning, and
   rendering presentation projects with segmented narration and video exports.
+- Expand `ub-presentation` with script-editing guidance for spoken flow,
+  terminology choices, and generated artifact regeneration.
 - Add `ub-skill-catalog` for maintaining, improving, validating, and sharing
   Uraniborg public skills from the source catalog.
 - Add `ub-dev-env` and `ub-skill-catalog` to README catalog and install
