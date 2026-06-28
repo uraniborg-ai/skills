@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.2 - 2026-06-28
+
 - Limit `ub-writing` commit guidance to commit message rules and leave commit
   operations to project or agent conventions.
 
