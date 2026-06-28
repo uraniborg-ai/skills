@@ -1,4 +1,4 @@
 interface:
   display_name: "UB Writing"
-  short_description: "Write and review docs concisely"
-  default_prompt: "Use $ub-writing to draft, rewrite, or review repo docs for clarity, concision, context budget, ambiguity, and stable terminology."
+  short_description: "Write technical docs and commit messages"
+  default_prompt: "Use $ub-writing to draft, rewrite, review, or route project technical docs and Git commit messages for clarity, concision, context budget, source-of-truth boundaries, ambiguity, and stable terminology."

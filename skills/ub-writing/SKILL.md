@@ -1,24 +1,56 @@
 ---
 name: ub-writing
-description: Draft, rewrite, or review repository documentation for concise, clear, context-efficient writing. Use for README files, docs, proposals, architecture notes, guides, product copy, agent-facing docs, or skill docs when Codex should reduce context cost, clarify audience and job, remove repetition, tighten wording, identify ambiguity, preserve stable terminology, or produce review findings with shorter suggested wording.
+description: Draft, rewrite, or review project technical documentation and Git commit messages for concise, clear, context-efficient writing. Use for contributor-facing docs, README updates, development guides, architecture notes, changelogs, agent instructions, generated-doc review, commit message review, and technical doc routing when Codex should clarify audience and job, preserve source-of-truth boundaries, reduce repetition, or identify ambiguity.
 ---
 
 # UB Writing
 
-Use this skill for repo documentation that should be short, clear, and cheap
-for humans and agents to load. Treat context as a limited resource.
+Use this skill for project technical documentation that should be short, clear,
+and cheap for humans and agents to load. Treat context as a limited resource.
+
+## Scope
+
+Use this skill for technical docs, contributor-facing operating docs,
+maintainer notes, changelogs, generated-doc review, Git commit messages, and
+agent instructions.
+
+Do not use it by default for literary writing, essays, blog posts, marketing
+copy, personal notes, presentation prose, resumes, or prompt experiments unless
+the user explicitly asks for a technical-docs pass.
 
 ## Workflow
 
-1. Identify the document's audience and job in one sentence.
+1. Classify the document job as `user-facing`, `contributor-facing`,
+   `maintainer-facing`, `generated`, or `proposal`.
 2. Read only the target sections needed for the task.
-3. Check local project guidance first: `AGENTS.md`, `docs/philosophy.md`,
-   nearby docs, and relevant proposals.
+3. Check local project guidance first: `AGENTS.md`, nearby docs, and relevant
+   proposals. If `CLAUDE.md` exists independently, check for source-of-truth
+   drift against `AGENTS.md`.
 4. Preserve local source-of-truth boundaries and stable terms.
 5. Remove weight before adding explanation.
 
-Use `$ub-proposals` as well when proposal status, section shape, non-goals,
-acceptance scenarios, or proposal lifecycle conventions matter.
+Do not require a fixed document set. Before suggesting a new document, check
+whether the information belongs in an existing source of truth. Use
+`references/project-doc-structure.md` for routing decisions.
+
+For proposal, RFC, ADR, decision record, `docs/proposals/`, proposal status,
+frontmatter, non-goals, acceptance scenarios, or proposal lifecycle work, first
+check whether `$ub-proposals` is available. Use it with `$ub-writing` when
+available. If it is not available, suggest installing it before drafting or
+rewriting the proposal; continue with local-convention fallback only when the
+user declines or installation is not possible.
+
+For generated reference docs, review the output but do not edit generated files
+directly. Route wording fixes to source comments, docstrings, generator code,
+templates, config, wrapper README text, or regenerate commands.
+
+For Git commit message requests, inspect local commit rules first:
+`AGENTS.md`, `CONTRIBUTING.md`, `docs/commit-conventions.md`, release docs, or
+maintainer docs. If no local rule exists, use Conventional Commits v1.0.0 in
+English. Prefer staged changes via `git diff --cached`; if only unstaged changes
+exist, say the message is a draft. Treat commit messages as `maintainer-facing`
+writing. Suggest splitting unrelated changes. Do not run `git commit` unless the
+user explicitly asks.
 
 ## Writing Standard
 
@@ -58,7 +90,8 @@ Notes
 Use priorities this way:
 
 - `P1`: source-of-truth, safety, compatibility, data loss, or irreversible
-  decision risk.
+  decision risk, including conflicting independent `AGENTS.md` and `CLAUDE.md`
+  instructions.
 - `P2`: unclear audience/job, ambiguous actor or boundary, repeated rationale,
   or implementation detail in the wrong document.
 - `P3`: wording, terminology, list shape, passive voice, or clarity cleanup.

@@ -5,7 +5,7 @@ Reusable agent skills for scientific and engineering work.
 This repository is a small skill catalog for workflows that researchers and
 engineers tend to repeat across many projects: reading PDFs, extracting video
 transcripts, producing narrated presentations, running Python projects with uv,
-maintaining decision proposals, and writing concise docs.
+maintaining decision proposals, and writing concise docs and commit messages.
 
 ## Skills
 
@@ -18,7 +18,7 @@ maintaining decision proposals, and writing concise docs.
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
 | `ub-dev-env` | Plan team development environments. |
 | `ub-proposals` | Draft, review, and refactor decision-first development proposals. |
-| `ub-writing` | Draft, rewrite, and review concise repo docs. |
+| `ub-writing` | Route, draft, rewrite, and review project technical docs and commit messages. |
 | `ub-skill-catalog` | Maintain and share Uraniborg public skills. |
 
 ## Install

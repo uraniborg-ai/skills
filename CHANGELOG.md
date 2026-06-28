@@ -24,6 +24,9 @@
   examples.
 - Expand `ub-proposals` with refactoring, compression, terminology maturity,
   and core/supporting content guidance.
+- Limit `ub-writing` to project technical documentation and add routing
+  guidance for contributor docs, proposals, generated docs, agent instructions,
+  and commit messages.
 - Remove `ub-workspace` from the public skill catalog.
 
 ## 0.1.1

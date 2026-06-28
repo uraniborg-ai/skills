@@ -1,11 +1,11 @@
 ---
 title: Limit UB Writing To Project Technical Documentation
-description: ub-writing의 적용 범위를 프로젝트 기술 문서로 제한하고 문서 라우팅, proposal handoff, 생성 문서, agent 지침 source-of-truth를 정리한다.
+description: ub-writing의 적용 범위를 프로젝트 기술 문서와 Git commit message로 제한하고 문서 라우팅, proposal handoff, 생성 문서, agent 지침 source-of-truth를 정리한다.
 author:
   - Hyounggyu Kim <code@hyounggyu.com>
-status: accepted
+status: implemented
 created_at: 2026-06-28T00:00:00+09:00
-updated_at: 2026-06-28T10:49:30+09:00
+updated_at: 2026-06-28T10:57:30+09:00
 ---
 
 # Limit UB Writing To Project Technical Documentation
