@@ -1,6 +1,6 @@
 ---
 name: ub-writing
-description: Draft, rewrite, or review project technical documentation and Git commit messages for concise, clear, context-efficient writing. Use for contributor-facing docs, README updates, development guides, architecture notes, changelogs, agent instructions, generated-doc review, commit message review, requests to create or amend Git commits, and technical doc routing when Codex should clarify audience and job, preserve source-of-truth boundaries, reduce repetition, or identify ambiguity.
+description: Draft, rewrite, or review project technical documentation and Git commit messages for concise, clear, context-efficient writing. Use for contributor-facing docs, README updates, development guides, architecture notes, changelogs, agent instructions, generated-doc review, commit message draft or review requests, and technical doc routing when Codex should clarify audience and job, preserve source-of-truth boundaries, reduce repetition, or identify ambiguity.
 ---
 
 # UB Writing
@@ -44,24 +44,13 @@ For generated reference docs, review the output but do not edit generated files
 directly. Route wording fixes to source comments, docstrings, generator code,
 templates, config, wrapper README text, or regenerate commands.
 
-For Git commit message requests, treat any request to create, amend, squash, or
-prepare a Git commit as a commit message request. Inspect local commit rules
-first: `AGENTS.md`, `CONTRIBUTING.md`, `docs/commit-conventions.md`, release
-docs, relevant proposals, or maintainer docs. If no explicit local rule exists,
-inspect recent subjects with `git log --oneline -10` before falling back to
-Conventional Commits v1.0.0 in English. Prefer staged changes via
-`git diff --cached`; if only unstaged changes exist, say the message is a draft.
-Treat commit messages as `maintainer-facing` writing. Suggest splitting
-unrelated changes. Do not run `git commit` unless the user explicitly asks.
-
-Before committing:
-
-- Use `git diff --cached` for the message when changes are staged.
-- If nothing is staged, inspect the unstaged diff and stage only the intended
-  files.
-- Choose the commit type and optional scope.
-- Use an imperative, lowercase subject with no trailing period.
-- Run `git commit` only when the user explicitly asked to commit.
+For Git commit message requests, treat commit messages as `maintainer-facing`
+writing. Inspect local message rules first: `AGENTS.md`, `CONTRIBUTING.md`,
+`docs/commit-conventions.md`, release docs, relevant proposals, or maintainer
+docs. If local message rules exist, follow them. If no explicit local rule
+exists, use Conventional Commits v1.0.0 in English: choose the type and optional
+scope, use an imperative lowercase description with no trailing period, and mark
+breaking changes with `!` or a `BREAKING CHANGE:` footer.
 
 ## Writing Standard
 

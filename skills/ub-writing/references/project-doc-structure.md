@@ -62,24 +62,19 @@ match a local naming preference.
 ## Commit Messages
 
 Git commit messages are in scope for drafting and review as
-`maintainer-facing` writing. Before writing one, check local rules in
+`maintainer-facing` writing. Before writing one, check local message rules in
 `AGENTS.md`, `CONTRIBUTING.md`,
-`docs/commit-conventions.md`, release docs, or maintainer docs. When local rules
-exist, follow them.
+`docs/commit-conventions.md`, release docs, or maintainer docs. When local
+message rules exist, follow them.
 
-When the project has no local commit convention, use Conventional Commits
-v1.0.0:
+When the project has no local commit message convention, use Conventional
+Commits v1.0.0:
 
 - Write messages in English by default.
 - Use `type(scope): description` when a useful scope is clear.
 - Use an imperative, lowercase description with no trailing period.
 - Use `!` after the type or scope, or a `BREAKING CHANGE:` footer, for breaking
   changes.
-- Prefer the staged diff from `git diff --cached`. If there is no staged diff,
-  state that the message is a draft based on unstaged changes.
-- If the diff mixes unrelated changes, suggest splitting the commit before
-  writing a single message.
-- Do not run `git commit` unless the user explicitly asks.
 
 ## Naming Guidance
 

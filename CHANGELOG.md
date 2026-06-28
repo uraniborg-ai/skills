@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Limit `ub-writing` commit guidance to commit message rules and leave commit
+  operations to project or agent conventions.
+
 ## 0.2.1 - 2026-06-28
 
 - Align `ub-youtube-transcript` with uv script execution and script-local
