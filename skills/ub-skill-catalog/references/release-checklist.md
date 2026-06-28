@@ -12,6 +12,11 @@ release.
 - Confirm new public skills are listed in `tests/smoke/check_structure.py`.
 - Confirm removed public skills are removed from README install examples and
   smoke expectations.
+- For new public skills, confirm local `npx skills` discovery shows the skill:
+
+  ```sh
+  npx skills add . --list
+  ```
 
 ## Documentation
 
@@ -39,6 +44,8 @@ release.
   installed skills beyond `ub-*`.
 - For Codex and Claude Code installs, confirm the public catalog is visible with
   `npx skills add uraniborg-ai/skills --list`.
+- For new public skills, confirm the public catalog list includes the new skill
+  before asking users to install it.
 - After refreshing, confirm `ub-*` copies in `~/.agents/skills` and
   `~/.claude/skills`. Treat Claude entries as present when they are directories
   or symlinks.

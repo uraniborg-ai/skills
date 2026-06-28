@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.3.0 - 2026-06-28
+
 - Add `ub-jupyter` for local Jupyter notebook inspection, editing, validation,
   project-aware uv execution, and review hygiene.
 
