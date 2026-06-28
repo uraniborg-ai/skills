@@ -15,6 +15,7 @@ from typing import Any
 
 
 ENV_PATTERN = re.compile(r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}")
+REMOVED_PATH_KEYS = ("output_dir", "exports_dir")
 
 
 @dataclass(frozen=True)
@@ -50,8 +51,10 @@ class Project:
     path: Path
     root: Path
     presentation_dir: Path
-    output_dir: Path
+    voiceover_dir: Path
+    captions_dir: Path
     exports_dir: Path
+    build_dir: Path
     voice: VoiceConfig
     video: VideoConfig
     slides: list[Slide]
@@ -75,18 +78,14 @@ def find_nearest_env(start: Path) -> Path | None:
 
 
 def load_env_file(env_path: Path | None) -> None:
-    if env_path is None:
-        return
-    if not env_path.exists():
+    if env_path is None or not env_path.exists():
         return
     for line in env_path.read_text(encoding="utf-8").splitlines():
         stripped = line.strip()
         if not stripped or stripped.startswith("#") or "=" not in stripped:
             continue
         name, value = stripped.split("=", 1)
-        name = name.strip()
-        value = value.strip().strip('"').strip("'")
-        os.environ.setdefault(name, value)
+        os.environ.setdefault(name.strip(), value.strip().strip('"').strip("'"))
 
 
 def resolve_env_value(value: Any, *, required: bool = False) -> Any:
@@ -141,6 +140,16 @@ def relative_to_presentation(project: Project, path: Path) -> str:
         return os.path.relpath(path.resolve(), project.presentation_dir).replace(os.sep, "/")
 
 
+def _reject_removed_path_keys(raw: dict[str, Any]) -> None:
+    present = [key for key in REMOVED_PATH_KEYS if key in raw]
+    if present:
+        keys = ", ".join(present)
+        raise ValueError(
+            f"{keys} are no longer supported; use fixed directories "
+            "voiceover/, captions/, exports/, and build/."
+        )
+
+
 def load_project(project_path: str | Path) -> Project:
     path, presentation_dir = _resolve_input(project_path, Path.cwd())
     load_env_file(find_nearest_env(presentation_dir))
@@ -154,10 +163,7 @@ def load_project(project_path: str | Path) -> Project:
 
     if not isinstance(raw, dict):
         raise ValueError("narration JSON must be an object")
-
-    output_dir_raw = resolve_env_value(raw.get("output_dir", "build/voiceover"))
-    output_dir = _resolve_project_path(presentation_dir, str(output_dir_raw))
-    exports_dir = _resolve_project_path(presentation_dir, str(raw.get("exports_dir", "exports")))
+    _reject_removed_path_keys(raw)
 
     voice_raw = raw.get("voice", {})
     if voice_raw is None:
@@ -195,7 +201,8 @@ def load_project(project_path: str | Path) -> Project:
             raise ValueError(f"slides[{slide_idx}] must be an object")
         if "text" in item:
             raise ValueError(
-                f"slides[{slide_idx}].text is no longer supported; use slides[].segments[]"
+                f"slides[{slide_idx}].text is no longer supported; "
+                "run segment_narration.py to convert to slides[].segments[]"
             )
         image_raw = resolve_env_value(item.get("image"))
         if not isinstance(image_raw, str) or not image_raw.strip():
@@ -232,8 +239,10 @@ def load_project(project_path: str | Path) -> Project:
         path=path.resolve(),
         root=root,
         presentation_dir=presentation_dir.resolve(),
-        output_dir=output_dir,
-        exports_dir=exports_dir,
+        voiceover_dir=(presentation_dir / "voiceover").resolve(),
+        captions_dir=(presentation_dir / "captions").resolve(),
+        exports_dir=(presentation_dir / "exports").resolve(),
+        build_dir=(presentation_dir / "build").resolve(),
         voice=VoiceConfig(
             voice_id=str(voice_id),
             model_id=str(model_id),
@@ -248,21 +257,36 @@ def require_tools(*names: str) -> list[str]:
     return [name for name in names if shutil.which(name) is None]
 
 
+def voiceover_audio_dir(project: Project) -> Path:
+    return project.voiceover_dir / "audio"
+
+
+def build_voiceover_dir(project: Project) -> Path:
+    return project.build_dir / "voiceover"
+
+
+def build_render_dir(project: Project) -> Path:
+    return project.build_dir / "render"
+
+
 def slide_audio_path(project: Project, slide: Slide) -> Path:
-    return project.output_dir / "audio" / f"slide-{slide.index:03d}.mp3"
+    return voiceover_audio_dir(project) / f"slide-{slide.index:03d}.mp3"
 
 
 def segment_audio_path(project: Project, slide: Slide, segment: Segment) -> Path:
     return (
-        project.output_dir
-        / "audio"
+        voiceover_audio_dir(project)
         / f"slide-{slide.index:03d}"
         / f"segment-{segment.index:03d}.mp3"
     )
 
 
 def silence_audio_path(project: Project, duration_ms: int) -> Path:
-    return project.output_dir / "audio" / "silence" / f"silence-{duration_ms:04d}ms.mp3"
+    return build_voiceover_dir(project) / "silence" / f"silence-{duration_ms:04d}ms.mp3"
+
+
+def concat_list_path(project: Project, slide: Slide) -> Path:
+    return build_voiceover_dir(project) / f"slide-{slide.index:03d}.concat.txt"
 
 
 def audio_path(project: Project, slide: Slide) -> Path:
@@ -270,11 +294,23 @@ def audio_path(project: Project, slide: Slide) -> Path:
 
 
 def timeline_path(project: Project) -> Path:
-    return project.output_dir / "timeline.json"
+    return project.build_dir / "timeline.json"
+
+
+def youtube_srt_path(project: Project) -> Path:
+    return project.captions_dir / "youtube.srt"
+
+
+def render_clip_path(project: Project, slide_index: int) -> Path:
+    return build_render_dir(project) / f"clip-{slide_index:03d}.mp4"
+
+
+def render_concat_path(project: Project) -> Path:
+    return build_render_dir(project) / "concat.txt"
 
 
 def voiceover_video_path(project: Project) -> Path:
-    return project.output_dir / "final.mp4"
+    return build_render_dir(project) / "final.mp4"
 
 
 def final_video_path(project: Project) -> Path:

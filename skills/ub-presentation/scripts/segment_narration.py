@@ -23,6 +23,7 @@ KEY_CLAIM_HINTS = ("핵심", "중요", "문제", "정리하면", "결론", "즉"
 TRANSITION_HINTS = ("먼저", "다음", "이제", "여기서", "그래서", "정리하면", "마지막으로")
 TARGET_CHARS = 95
 MAX_CHARS = 145
+REMOVED_PATH_KEYS = {"output_dir", "exports_dir"}
 
 
 def resolve_narration_path(path_arg: str) -> tuple[Path, Path]:
@@ -149,7 +150,9 @@ def convert(raw: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         voice = {}
     voice = {**voice, "model_id": "eleven_v3"}
 
-    converted = {key: value for key, value in raw.items() if key != "slides"}
+    converted = {
+        key: value for key, value in raw.items() if key != "slides" and key not in REMOVED_PATH_KEYS
+    }
     converted["voice"] = voice
     converted["slides"] = converted_slides
     return converted, plan

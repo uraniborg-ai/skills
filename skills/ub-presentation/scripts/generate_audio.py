@@ -18,6 +18,7 @@ from pathlib import Path
 from project_config import (
     Segment,
     Slide,
+    concat_list_path,
     load_project,
     segment_audio_path,
     silence_audio_path,
@@ -162,7 +163,8 @@ def generate(project_file: str, *, overwrite: bool = False) -> int:
                 concat_parts.append(silence)
 
         slide_target.parent.mkdir(parents=True, exist_ok=True)
-        concat_file = project.output_dir / "audio" / f"slide-{slide.index:03d}.concat.txt"
+        concat_file = concat_list_path(project, slide)
+        concat_file.parent.mkdir(parents=True, exist_ok=True)
         concat_file.write_text(concat_list_lines(concat_parts), encoding="utf-8")
         try:
             subprocess.run(

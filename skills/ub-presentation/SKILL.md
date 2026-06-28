@@ -1,12 +1,12 @@
 ---
 name: ub-presentation
-description: Create, validate, migrate, narrate, caption, and render presentation projects with slide images, segmented narration, ElevenLabs voiceover audio, YouTube subtitles, transcripts, and final video exports. Use when working with a presentation directory that contains narration.json, images, build artifacts, and optional draft.md or slides.md files.
+description: Create, validate, narrate, caption, and render presentation projects with slide images, segmented narration, ElevenLabs voiceover audio, YouTube subtitles, and final video exports. Use when working with a presentation directory that contains narration.json, images, build artifacts, and optional draft.md or slides.md files.
 ---
 
 # UB Presentation
 
-Use this skill for presentation projects that keep source material and generated
-artifacts together.
+Use this skill for presentation projects that keep source material, reviewable
+media assets, and generated build artifacts together.
 
 ## Project Shape
 
@@ -14,22 +14,20 @@ Each presentation can live in any directory. `contents/YYYY/NN-title/` is a
 common shape, not a requirement:
 
 ```text
-presentation.yaml
 draft.md
 slides.md
 narration.json
-transcript.md
-youtube.srt
 images/
-build/voiceover/ or voiceover/
+voiceover/
+captions/
 exports/
+build/
 ```
 
-Use `draft.md` for long-form thinking, `slides.md` for slide titles or
-structure, and `narration.json` as the executable voiceover input. Only
-`narration.json` and referenced slide images are required by the validator.
-Narration uses `slides[].segments[]`; the legacy `slides[].text` shape is not
-valid.
+Use `draft.md` for long-form thinking, `slides.md` for slide structure, and
+`narration.json` as the executable voiceover input. Only `narration.json` and
+referenced slide images are required by the validator. Narration uses
+`slides[].segments[]`; the legacy `slides[].text` shape is not valid.
 
 ## Workflow
 
@@ -60,7 +58,7 @@ Run scripts with `uv run --script`.
    uv run --script skills/ub-presentation/scripts/build_timeline.py path/to/presentation
    ```
 
-5. Generate YouTube subtitles and transcript:
+5. Generate YouTube subtitles:
 
    ```sh
    uv run --script skills/ub-presentation/scripts/generate_subtitles.py path/to/presentation
@@ -80,17 +78,13 @@ uv run --script skills/ub-presentation/scripts/run_pipeline.py path/to/presentat
 
 ## Notes
 
-- Keep `timeline.json` paths relative to the presentation directory.
-- Keep generated YouTube captions in `youtube.srt`.
-- Keep the readable script in `transcript.md`.
-- When editing spoken narration, avoid reading dense slide bullets verbatim;
-  see `references/script-editing.md` for script, terminology, and regeneration
-  guidance.
-- When revising slide image prompts, use reference assets and pilot images
-  before broad regeneration; see `references/image-prompting.md`.
-- Use ElevenLabs v3 audio tags sparingly at the start of segment text, for example `[calm]` or `[thoughtful][slight emphasis]`.
-- Segment audio is generated under the configured `output_dir`, commonly `build/voiceover` for temporary build artifacts or `voiceover` for reusable presentation assets.
+- Generated segment and slide audio live under `voiceover/audio/`.
+- Generated YouTube captions live in `captions/youtube.srt`.
+- Timeline, render clips, concat lists, silence files, and intermediate videos
+  live under `build/`.
+- Final export video lives in `exports/final.mp4`.
 - Store real API keys only in `.env` or the process environment. Scripts read
   the nearest `.env` found from the presentation directory upward and do not
   override existing environment values.
-- See `references/input-schema.md`, `references/elevenlabs.md`, and `references/ffmpeg.md` when changing script behavior.
+- See `references/project-workflow.md`, `references/input-schema.md`,
+  `references/elevenlabs.md`, and `references/ffmpeg.md` for details.

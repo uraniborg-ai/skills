@@ -1,12 +1,10 @@
 # Input Schema
 
-Use one `narration.json` file per presentation directory. The directory can be
-any project-local path; `contents/YYYY/NN-title` is only a common convention.
+Use one `narration.json` file per presentation directory. It is the executable
+input for voiceover audio, timeline, subtitles, and video rendering.
 
 ```json
 {
-  "output_dir": "build/voiceover",
-  "exports_dir": "exports",
   "video": {
     "width": 1920,
     "height": 1080,
@@ -35,16 +33,22 @@ any project-local path; `contents/YYYY/NN-title` is only a common convention.
 }
 ```
 
-Paths are resolved relative to the presentation directory. `output_dir` can point to a temporary build location such as `build/voiceover` or a reusable voiceover asset directory such as `voiceover`.
+Paths in `slides[].image` are resolved relative to the presentation directory.
+Generated artifacts always use the fixed project structure:
 
-`slides[].text` is a legacy shape and is rejected by the validator. Use `segment_narration.py` to create an initial `slides[].segments[]` draft from an older file.
+- `voiceover/audio/` for segment and slide MP3 files
+- `build/timeline.json` for timeline metadata
+- `captions/youtube.srt` for YouTube captions
+- `exports/final.mp4` for the final video
 
-Segment text is passed directly to ElevenLabs, including inline audio tags. Keep tags short and place them at the beginning of the segment. `pause_after_ms` controls the silence inserted after the segment before the slide-level MP3 is concatenated.
+`output_dir` and `exports_dir` are no longer valid input keys. Remove them from
+older `narration.json` files before running the pipeline.
 
-`slides.md` is optional. When present, `generate_subtitles.py` uses `##`
-headings as transcript slide titles.
+`slides[].text` is a legacy shape and is rejected by the validator. Use
+`segment_narration.py` to create an initial `slides[].segments[]` draft from an
+older file.
 
-`generate_subtitles.py` reads `<output_dir>/timeline.json` and writes:
-
-- `youtube.srt`
-- `transcript.md`
+Segment text is passed directly to ElevenLabs, including inline audio tags.
+Keep tags short and place them at the beginning of the segment.
+`pause_after_ms` controls the silence inserted after the segment before the
+slide-level MP3 is concatenated.

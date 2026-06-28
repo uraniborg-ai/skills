@@ -12,8 +12,8 @@
   updates.
 - Expand `ub-presentation` image prompting guidance for recurring character
   consistency and action-readable operator poses.
-- Clarify `ub-presentation` configurable voiceover output directories and
-  asset-vs-build artifact guidance.
+- Refactor `ub-presentation` around fixed `voiceover/`, `captions/`,
+  `exports/`, and `build/` artifact directories.
 - Add `ub-skill-catalog` for maintaining, improving, validating, and sharing
   Uraniborg public skills from the source catalog.
 - Teach `ub-skill-catalog` to inspect `.claude/skills` installed copies along

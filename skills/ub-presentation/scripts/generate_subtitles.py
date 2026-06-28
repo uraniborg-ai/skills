@@ -11,7 +11,7 @@ import re
 import sys
 from pathlib import Path
 
-from project_config import load_project, timeline_path
+from project_config import load_project, timeline_path, youtube_srt_path
 
 
 AUDIO_TAG_PATTERN = re.compile(r"\[[^\]]+\]")
@@ -52,7 +52,15 @@ def parse_slide_titles(slides_file: Path) -> list[str]:
     if not slides_file.exists():
         return []
     titles: list[str] = []
-    for line in slides_file.read_text(encoding="utf-8").splitlines():
+    in_frontmatter = False
+    for line_number, line in enumerate(slides_file.read_text(encoding="utf-8").splitlines()):
+        if line_number == 0 and line == "---":
+            in_frontmatter = True
+            continue
+        if in_frontmatter:
+            if line == "---":
+                in_frontmatter = False
+            continue
         if line.startswith("## "):
             titles.append(line.removeprefix("## ").strip())
     return titles
@@ -96,26 +104,17 @@ def generate(project_file: str) -> int:
     for index, (start, end, text) in enumerate(cues, start=1):
         srt_blocks.append(f"{index}\n{format_srt_time(start)} --> {format_srt_time(end)}\n{text}")
 
-    srt_path = project.presentation_dir / "youtube.srt"
+    srt_path = youtube_srt_path(project)
+    srt_path.parent.mkdir(parents=True, exist_ok=True)
     srt_path.write_text("\n\n".join(srt_blocks) + "\n", encoding="utf-8")
 
-    titles = parse_slide_titles(project.presentation_dir / "slides.md")
-    transcript_lines = ["# Presentation Transcript", ""]
-    for slide in project.slides:
-        title = titles[slide.index - 1] if slide.index <= len(titles) else f"Slide {slide.index}"
-        text = " ".join(strip_audio_tags(segment.text) for segment in slide.segments)
-        transcript_lines.extend([f"## {slide.index}. {title}", "", text, ""])
-    transcript_path = project.presentation_dir / "transcript.md"
-    transcript_path.write_text("\n".join(transcript_lines).rstrip() + "\n", encoding="utf-8")
-
     print(f"Wrote {srt_path}")
-    print(f"Wrote {transcript_path}")
     return 0
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Generate YouTube SRT subtitles and transcript from segment timeline."
+        description="Generate YouTube SRT subtitles from segment timeline."
     )
     parser.add_argument("project", help="Presentation directory or narration.json path")
     args = parser.parse_args()

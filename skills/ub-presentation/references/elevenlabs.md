@@ -22,7 +22,10 @@ Defaults:
 
 Narration is generated per segment. Segment text may start with ElevenLabs v3 audio tags such as `[calm]`, `[warmly]`, `[thoughtful]`, `[slight emphasis]`, or `[confident]`. Tags are not validated locally; they are passed to the model as written.
 
-Generated segment files are concatenated with `pause_after_ms` silence into slide-level MP3 files so the rendering pipeline can keep using one audio file per slide.
+Generated segment files are stored under `voiceover/audio/slide-001/` and
+concatenated with `pause_after_ms` silence into slide-level MP3 files such as
+`voiceover/audio/slide-001.mp3`. Silence files and concat lists are disposable
+build artifacts under `build/voiceover/`.
 
 Do not print or commit the real API key. Keep it in `.env` or the process
 environment. Scripts read the nearest `.env` found from the presentation

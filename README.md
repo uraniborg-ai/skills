@@ -12,7 +12,7 @@ maintaining decision proposals, and writing concise docs and commit messages.
 | Skill | Purpose |
 | --- | --- |
 | `ub-pdf-reader` | Search, inspect, render, and cite PDF evidence. |
-| `ub-presentation` | Author, caption, and render narrated presentations. |
+| `ub-presentation` | Author, caption, and render structured narrated presentations. |
 | `ub-youtube-transcript` | Extract YouTube transcripts into structured Markdown. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |

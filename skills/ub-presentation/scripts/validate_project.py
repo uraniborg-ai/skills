@@ -11,11 +11,15 @@ import sys
 
 from project_config import (
     audio_path,
+    build_render_dir,
+    build_voiceover_dir,
     final_video_path,
     load_project,
     require_tools,
     timeline_path,
+    voiceover_audio_dir,
     voiceover_video_path,
+    youtube_srt_path,
 )
 
 
@@ -65,9 +69,11 @@ def validate(
     print(f"Slides: {len(project.slides)}")
     print(f"Segments: {sum(len(slide.segments) for slide in project.slides)}")
     print(f"Voice model: {project.voice.model_id}")
-    print(f"Output directory: {project.output_dir}")
-    print(f"Audio directory: {project.output_dir / 'audio'}")
+    print(f"Voiceover audio directory: {voiceover_audio_dir(project)}")
+    print(f"Build voiceover directory: {build_voiceover_dir(project)}")
+    print(f"Build render directory: {build_render_dir(project)}")
     print(f"Timeline: {timeline_path(project)}")
+    print(f"YouTube captions: {youtube_srt_path(project)}")
     print(f"Voiceover video: {voiceover_video_path(project)}")
     print(f"Export video: {final_video_path(project)}")
     print("Validation passed.")

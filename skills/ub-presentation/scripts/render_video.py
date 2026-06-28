@@ -12,7 +12,15 @@ import subprocess
 import sys
 from pathlib import Path
 
-from project_config import final_video_path, load_project, timeline_path, voiceover_video_path
+from project_config import (
+    build_render_dir,
+    final_video_path,
+    load_project,
+    render_clip_path,
+    render_concat_path,
+    timeline_path,
+    voiceover_video_path,
+)
 
 
 def run(command: list[str]) -> None:
@@ -34,7 +42,7 @@ def render(project_file: str, *, overwrite: bool = False) -> int:
         return 1
 
     timeline = json.loads(timeline_file.read_text(encoding="utf-8"))
-    render_dir = project.output_dir / "render"
+    render_dir = build_render_dir(project)
     render_dir.mkdir(parents=True, exist_ok=True)
 
     clips: list[Path] = []
@@ -43,7 +51,7 @@ def render(project_file: str, *, overwrite: bool = False) -> int:
         image = _resolve_timeline_path(project, item["image"])
         audio = _resolve_timeline_path(project, item["audio"])
         duration = str(item["duration"])
-        clip = render_dir / f"clip-{index:03d}.mp4"
+        clip = render_clip_path(project, index)
         clips.append(clip)
 
         if clip.exists() and not overwrite:
@@ -77,7 +85,7 @@ def render(project_file: str, *, overwrite: bool = False) -> int:
             ]
         )
 
-    concat_file = render_dir / "concat.txt"
+    concat_file = render_concat_path(project)
     concat_file.write_text(
         "".join(f"file '{clip.as_posix()}'\n" for clip in clips), encoding="utf-8"
     )

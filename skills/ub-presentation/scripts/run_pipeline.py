@@ -12,11 +12,15 @@ from generate_audio import generate
 from generate_subtitles import generate as generate_subtitles
 from project_config import (
     audio_path,
+    build_render_dir,
+    build_voiceover_dir,
     final_video_path,
     load_project,
     segment_audio_path,
     timeline_path,
+    voiceover_audio_dir,
     voiceover_video_path,
+    youtube_srt_path,
 )
 from render_video import render
 from validate_project import validate
@@ -36,9 +40,11 @@ def dry_run(project_file: str) -> int:
             print(
                 f"      segment {segment.index:03d}: {segment_audio_path(project, slide, segment)}"
             )
+    print(f"  voiceover audio directory: {voiceover_audio_dir(project)}")
+    print(f"  build voiceover directory: {build_voiceover_dir(project)}")
     print(f"  timeline: {timeline_path(project)}")
-    print(f"  subtitles: {project.presentation_dir / 'youtube.srt'}")
-    print(f"  transcript: {project.presentation_dir / 'transcript.md'}")
+    print(f"  subtitles: {youtube_srt_path(project)}")
+    print(f"  build render directory: {build_render_dir(project)}")
     print(f"  voiceover video: {voiceover_video_path(project)}")
     print(f"  export video: {final_video_path(project)}")
     return 0

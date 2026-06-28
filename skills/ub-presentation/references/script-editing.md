@@ -19,10 +19,9 @@ Use these notes when revising spoken narration for a presentation project.
   terms, or intentional concept labels. Translate implementation details and
   ordinary operational language into the audience's language when that improves
   comprehension.
-- Keep terminology aligned across `slides.md`, `narration.json`, and
-  `transcript.md`. Do not force the same rewrite into image filenames, asset
-  identifiers, alt text, or source references when those names are serving as
-  stable identifiers.
+- Keep terminology aligned across `slides.md` and `narration.json`. Do not
+  force the same rewrite into image filenames, asset identifiers, alt text, or
+  source references when those names are serving as stable identifiers.
 - When a term feels ambiguous in spoken form, prefer the phrase that explains
   the role it plays in the workflow over the phrase that mirrors the internal
   implementation.
@@ -40,11 +39,10 @@ Use these notes when revising spoken narration for a presentation project.
 ## Source And Generated Artifacts
 
 - Separate text-source editing from media regeneration. Update `slides.md`,
-  `narration.json`, and `transcript.md` first; regenerate audio, subtitles, and
-  video only after the script is accepted or the user explicitly requests it.
+  and `narration.json` first; regenerate audio, subtitles, and video only after
+  the script is accepted or the user explicitly requests it.
 - After deleting or renumbering slides, check for stale generated artifacts and
   references such as old slide audio, render clips, timeline entries, and SRT
   cues.
-- Decide whether voiceover audio and timelines are reusable presentation assets
-  or temporary build outputs. Render clips and intermediate final videos should
-  remain build artifacts even when audio and timeline files are preserved.
+- Treat `voiceover/audio/`, `captions/`, and `exports/` as reviewable generated
+  assets. Treat `build/` as disposable pipeline output.
