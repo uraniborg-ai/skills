@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.0 - 2026-06-28
+
 - Add `ub-presentation` for authoring, validating, narrating, captioning, and
   rendering presentation projects with segmented narration and video exports.
 - Expand `ub-presentation` with script-editing guidance for spoken flow,
