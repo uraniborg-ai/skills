@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Finance Data"
+  short_description: "Collect Korean finance data with provenance"
+  default_prompt: "Use $ub-finance-data to collect Korean stock index, stock OHLCV, and interest-rate data as source-preserving JSON or CSV."

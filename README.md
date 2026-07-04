@@ -16,6 +16,7 @@ and writing concise docs and commit messages.
 | `ub-jupyter` | Inspect, edit, validate, and explicitly execute Jupyter notebooks. |
 | `ub-presentation` | Author, caption, and render structured narrated presentations. |
 | `ub-youtube` | Collect YouTube transcripts and playlist research notes. |
+| `ub-finance-data` | Collect Korean finance indicators with provenance. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
 | `ub-dev-env` | Plan team development environments. |
@@ -40,6 +41,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-jupyter \
   --skill ub-presentation \
   --skill ub-youtube \
+  --skill ub-finance-data \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-dev-env \
@@ -58,6 +60,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-jupyter \
   --skill ub-presentation \
   --skill ub-youtube \
+  --skill ub-finance-data \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-dev-env \

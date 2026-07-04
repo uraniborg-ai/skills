@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Add `ub-finance-data` for provenance-preserving Korean stock index and
+  interest-rate data collection.
+- Expand `ub-finance-data` with Korean stock OHLCV collection by ticker.
+
 ## 0.4.0 - 2026-07-04
 
 - Add `ub-workspace` for `.ub-workspace/config.toml`-driven multi-repository
