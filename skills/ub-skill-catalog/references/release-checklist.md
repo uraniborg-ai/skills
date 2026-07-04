@@ -12,6 +12,9 @@ release.
 - Confirm new public skills are listed in `tests/smoke/check_structure.py`.
 - Confirm removed public skills are removed from README install examples and
   smoke expectations.
+- For renamed or replaced public skills, record the old name, new name, and
+  user action in `CHANGELOG.md` before release. Keep the new name in README
+  install examples and smoke expectations.
 - For new public skills, confirm local `npx skills` discovery shows the skill:
 
   ```sh
@@ -22,6 +25,9 @@ release.
 
 - Update `README.md` when the public skill list or install guidance changes.
 - Update `CHANGELOG.md` under `Unreleased` with user-visible catalog changes.
+- For renames, write the migration note from the user's point of view, such as
+  replacing an old skill invocation or install target with the new public skill
+  name.
 - Keep installation examples aligned with the default public skill set.
 
 ## Validation
@@ -46,6 +52,9 @@ release.
   `npx skills add uraniborg-ai/skills --list`.
 - For new public skills, confirm the public catalog list includes the new skill
   before asking users to install it.
+- For renamed or replaced skills, confirm the public catalog list includes the
+  new skill and no longer includes the old public skill before asking users to
+  refresh installed copies.
 - After refreshing, confirm `ub-*` copies in `~/.agents/skills` and
   `~/.claude/skills`. Treat Claude entries as present when they are directories
   or symlinks.

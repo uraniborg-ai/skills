@@ -84,7 +84,9 @@ installation work.
    and `default_prompt`.
 5. Add new public skills to `tests/smoke/check_structure.py`.
 6. Update `README.md` and `CHANGELOG.md` when the public catalog changes.
-7. For release preparation, read `references/release-checklist.md`.
+7. When a skill is renamed, removed, or replaced, document the migration path
+   in release guidance before asking users to update installed copies.
+8. For release preparation, read `references/release-checklist.md`.
 
 ## Validation
 

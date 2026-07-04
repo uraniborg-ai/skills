@@ -6,7 +6,11 @@
   workspace inventory and conservative fast-forward sync workflows.
 - Rename `ub-youtube-transcript` to `ub-youtube` and expand it with playlist,
   Watch Later, Markdown/JSON export, and optional playlist transcript
-  collection workflows.
+  collection workflows. Existing users should replace the
+  `ub-youtube-transcript` install target and `$ub-youtube-transcript`
+  invocation with `ub-youtube` and `$ub-youtube`.
+- Expand `ub-skill-catalog` release guidance to track skill rename and
+  replacement migration notes before installed-copy refresh guidance.
 
 ## 0.3.0 - 2026-06-28
 
