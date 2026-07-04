@@ -58,12 +58,12 @@ installation work.
 2. Summarize installed `ub-*` copies from `~/.agents/.skill-lock.json`,
    `~/.agents/skills/ub-*`, and `~/.claude/skills/ub-*`. Treat Claude entries as
    present when they are directories or symlinks.
-3. For a full Codex install, install the public `ub-*` set with `--agent codex`.
-4. For a full Claude Code install, install the same public `ub-*` set with
-   `--agent claude-code`.
-5. For a `ub-skill-catalog`-only install or refresh, install only
-   `ub-skill-catalog` for the requested agent.
-6. For global updates, use:
+3. Install or refresh the requested public `ub-*` set with `npx skills`, leaving
+   agent selection to the user or the CLI defaults unless the user explicitly
+   requests a supported agent target.
+4. For a `ub-skill-catalog`-only install or refresh, install only
+   `ub-skill-catalog`.
+5. For global updates, use:
 
    ```sh
    npx skills update --global
@@ -71,7 +71,7 @@ installation work.
 
    Tell the user before running it that this can update globally installed
    skills beyond `ub-*`.
-7. After an install or update, re-check `.agents/skills` and `.claude/skills`
+6. After an install or update, re-check `.agents/skills` and `.claude/skills`
    and report which `ub-*` skills are present, missing, or linked.
 
 ## Add Or Update Public Skills

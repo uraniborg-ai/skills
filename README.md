@@ -33,7 +33,7 @@ List available skills:
 npx skills add uraniborg-ai/skills --list
 ```
 
-Install the default research skill set for Codex:
+Install the default research skill set:
 
 ```sh
 npx skills add uraniborg-ai/skills \
@@ -48,40 +48,22 @@ npx skills add uraniborg-ai/skills \
   --skill ub-workspace \
   --skill ub-proposals \
   --skill ub-writing \
-  --skill ub-skill-catalog \
-  --agent codex
+  --skill ub-skill-catalog
 ```
 
-Install the same set for Claude Code:
+Use the `npx skills` CLI options when you need to target a specific supported
+agent or install location.
+
+Install `ub-skill-catalog`:
 
 ```sh
-npx skills add uraniborg-ai/skills \
-  --skill ub-pdf-reader \
-  --skill ub-jupyter \
-  --skill ub-presentation \
-  --skill ub-youtube \
-  --skill ub-finance-data \
-  --skill ub-uv \
-  --skill ub-codex \
-  --skill ub-dev-env \
-  --skill ub-workspace \
-  --skill ub-proposals \
-  --skill ub-writing \
-  --skill ub-skill-catalog \
-  --agent claude-code
-```
-
-Install `ub-skill-catalog` for one agent:
-
-```sh
-npx skills add uraniborg-ai/skills --skill ub-skill-catalog --agent codex
-npx skills add uraniborg-ai/skills --skill ub-skill-catalog --agent claude-code
+npx skills add uraniborg-ai/skills --skill ub-skill-catalog
 ```
 
 Install one skill globally:
 
 ```sh
-npx skills add uraniborg-ai/skills --skill ub-pdf-reader --global --agent codex
+npx skills add uraniborg-ai/skills --skill ub-pdf-reader --global
 ```
 
 Check installed copies by inspecting `~/.agents/.skill-lock.json`,

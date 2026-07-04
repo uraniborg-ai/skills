@@ -48,7 +48,7 @@ release.
   `npx skills update --global` for global installs or the project-local update
   command for local installs. Tell users that global updates can affect
   installed skills beyond `ub-*`.
-- For Codex and Claude Code installs, confirm the public catalog is visible with
+- For supported agent installs, confirm the public catalog is visible with
   `npx skills add uraniborg-ai/skills --list`.
 - For new public skills, confirm the public catalog list includes the new skill
   before asking users to install it.

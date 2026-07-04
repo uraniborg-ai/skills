@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Remove fixed `--agent` targets from README and `ub-skill-catalog`
+  installation guidance so users can choose their supported agent target.
+
 ## 0.5.0 - 2026-07-04
 
 - Add `ub-finance-data` for provenance-preserving Korean stock index and
