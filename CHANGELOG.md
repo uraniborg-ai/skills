@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.5.0 - 2026-07-04
+
 - Add `ub-finance-data` for provenance-preserving Korean stock index and
   interest-rate data collection.
 - Expand `ub-finance-data` with Korean stock OHLCV collection by ticker.
