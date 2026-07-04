@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add `ub-workspace` for `.ub-workspace/config.toml`-driven multi-repository
+  workspace inventory and conservative fast-forward sync workflows.
+
 ## 0.3.0 - 2026-06-28
 
 - Add `ub-jupyter` for local Jupyter notebook inspection, editing, validation,

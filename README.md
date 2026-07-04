@@ -19,6 +19,7 @@ and writing concise docs and commit messages.
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
 | `ub-dev-env` | Plan team development environments. |
+| `ub-workspace` | Operate multi-repo workspaces safely. |
 | `ub-proposals` | Draft, review, and refactor decision-first development proposals. |
 | `ub-writing` | Route, draft, rewrite, and review project technical docs and commit messages. |
 | `ub-skill-catalog` | Maintain and share Uraniborg public skills. |
@@ -42,6 +43,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-dev-env \
+  --skill ub-workspace \
   --skill ub-proposals \
   --skill ub-writing \
   --skill ub-skill-catalog \
@@ -59,6 +61,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-dev-env \
+  --skill ub-workspace \
   --skill ub-proposals \
   --skill ub-writing \
   --skill ub-skill-catalog \
