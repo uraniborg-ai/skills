@@ -4,6 +4,9 @@
 
 - Add `ub-workspace` for `.ub-workspace/config.toml`-driven multi-repository
   workspace inventory and conservative fast-forward sync workflows.
+- Rename `ub-youtube-transcript` to `ub-youtube` and expand it with playlist,
+  Watch Later, Markdown/JSON export, and optional playlist transcript
+  collection workflows.
 
 ## 0.3.0 - 2026-06-28
 

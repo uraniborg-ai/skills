@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB YouTube"
+  short_description: "Collect YouTube research notes"
+  default_prompt: "Use $ub-youtube to collect YouTube video transcripts, playlist metadata, or Watch Later snapshots into structured Markdown or JSON with uv before summarizing or analyzing them."

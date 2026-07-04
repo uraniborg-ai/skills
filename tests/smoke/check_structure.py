@@ -16,7 +16,7 @@ EXPECTED = {
     "ub-proposals",
     "ub-skill-catalog",
     "ub-workspace",
-    "ub-youtube-transcript",
+    "ub-youtube",
     "ub-uv",
     "ub-writing",
 }

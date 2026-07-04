@@ -77,7 +77,9 @@ def format_transcript(snippets: list[dict], output_format: str) -> str:
     return "\n".join(lines) + "\n"
 
 
-def download_transcript(url: str, output_format: str) -> tuple[dict, str]:
+def download_transcript(
+    url: str, output_format: str, browser: str | None = None
+) -> tuple[dict, str]:
     options = {
         "skip_download": True,
         "quiet": True,
@@ -85,6 +87,8 @@ def download_transcript(url: str, output_format: str) -> tuple[dict, str]:
         "writeautomaticsub": True,
         "subtitlesformat": "json3",
     }
+    if browser:
+        options["cookiesfrombrowser"] = (browser,)
     with yt_dlp.YoutubeDL(options) as ydl:
         raw_info = ydl.extract_info(url, download=False)
         info = ydl.sanitize_info(raw_info)

@@ -4,7 +4,7 @@ Reusable agent skills for scientific and engineering work.
 
 This repository is a small skill catalog for workflows that researchers and
 engineers tend to repeat across many projects: reading PDFs, working with
-Jupyter notebooks, extracting video transcripts, producing narrated
+Jupyter notebooks, collecting YouTube research notes, producing narrated
 presentations, running Python projects with uv, maintaining decision proposals,
 and writing concise docs and commit messages.
 
@@ -15,7 +15,7 @@ and writing concise docs and commit messages.
 | `ub-pdf-reader` | Search, inspect, render, and cite PDF evidence. |
 | `ub-jupyter` | Inspect, edit, validate, and explicitly execute Jupyter notebooks. |
 | `ub-presentation` | Author, caption, and render structured narrated presentations. |
-| `ub-youtube-transcript` | Extract YouTube transcripts into structured Markdown. |
+| `ub-youtube` | Collect YouTube transcripts and playlist research notes. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
 | `ub-dev-env` | Plan team development environments. |
@@ -39,7 +39,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-pdf-reader \
   --skill ub-jupyter \
   --skill ub-presentation \
-  --skill ub-youtube-transcript \
+  --skill ub-youtube \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-dev-env \
@@ -57,7 +57,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-pdf-reader \
   --skill ub-jupyter \
   --skill ub-presentation \
-  --skill ub-youtube-transcript \
+  --skill ub-youtube \
   --skill ub-uv \
   --skill ub-codex \
   --skill ub-dev-env \
