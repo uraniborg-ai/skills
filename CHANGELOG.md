@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.5.1 - 2026-07-04
+
 - Remove fixed `--agent` targets from README and `ub-skill-catalog`
   installation guidance so users can choose their supported agent target.
 
