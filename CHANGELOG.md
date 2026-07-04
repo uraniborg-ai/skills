@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 - 2026-07-04
 
 - Add `ub-workspace` for `.ub-workspace/config.toml`-driven multi-repository
   workspace inventory and conservative fast-forward sync workflows.
