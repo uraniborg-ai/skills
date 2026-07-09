@@ -39,6 +39,8 @@ proposal history unless the user explicitly asks for migration.
 10. Recheck borrowed philosophies, analogies, and brainstorming scaffold before
     finalizing. Prefer project-native principles once the decision is clear.
 11. Preserve project terminology and source-of-truth boundaries.
+12. For implemented proposals, preserve the accepted decision record. Add
+    revision notes only for substantive post-implementation edits.
 
 For observed proposal shapes and section mappings, read
 `references/proposal-shapes.md` when creating a new proposal or normalizing an
@@ -131,6 +133,8 @@ Check in this order:
 - Risks, migration, compatibility, or security consequences are not buried.
 - Open questions are real decisions, not vague todos.
 - Links point to owning docs or superseding proposals.
+- Implemented proposals explain substantive post-implementation edits in the
+  body, including what changed and why.
 
 ## Review Output
 
@@ -195,6 +199,38 @@ Use these statuses for new or normalized proposals:
 - `implemented`: completed in the product.
 - `superseded`: replaced by another proposal.
 - `rejected`: closed without implementation.
+
+## Post-Implementation Edits
+
+An `implemented` proposal can still be edited, but it is a completed decision
+record. Preserve the accepted decision instead of silently changing history.
+
+- For typo fixes, formatting, broken links, and wording that does not change the
+  decision, no revision note is required. Update `updated_at` only when the edit
+  is substantive under local conventions.
+- For substantive clarifications after implementation, keep `status:
+  implemented`, update `updated_at`, and add a short `Revision Notes` entry that
+  says what changed and why.
+- For implementation evidence, follow-up work, or references discovered after
+  completion, prefer body sections such as `Implementation Notes`,
+  `Follow-On Work`, or `References` instead of custom frontmatter.
+- If the new edit changes the accepted decision, scope, ownership boundary,
+  non-goals, or acceptance behavior, write a new proposal instead of rewriting
+  the old one. Mark the old proposal `superseded` only when the new proposal
+  replaces it, and link both documents.
+- Do not use proposal revision notes as a product changelog. Use changelogs,
+  release notes, issues, or Git history for shipped change lists; use proposal
+  revision notes for decision-record changes and their rationale.
+
+Example:
+
+```markdown
+## Revision Notes
+
+- 2026-07-09: Clarified the implemented storage boundary after integration
+  showed which directory owns generated artifacts. This does not change the
+  accepted scope.
+```
 
 Legacy dated filenames are compatible and are not automatically wrong. Preserve
 archived proposal metadata unless the user explicitly asks for migration.

@@ -5,6 +5,8 @@
 - Remove `ub-finance-data` from the public skill catalog. Finance data work now
   lives outside this reusable skill set; use the project repository directly
   instead of installing `$ub-finance-data`.
+- Expand `ub-proposals` with post-implementation edit guidance, including when
+  implemented proposals need `Revision Notes` with the change and rationale.
 
 ## 0.5.1 - 2026-07-04
 

@@ -47,6 +47,12 @@ Use only these standard frontmatter fields for new proposals:
 same timestamp when creating a proposal. Update only `updated_at` after
 substantive edits.
 
+For implemented proposals, a substantive post-implementation edit should also
+add or update a body `Revision Notes` section. Each entry should include the
+date, what changed in the proposal record, and why the change was needed. Do not
+record typo fixes, formatting, or mechanical link repairs unless local
+conventions require it.
+
 Legacy or project-specific metadata such as `date`, `created`, `updated`,
 `related`, `tags`, `features`, `audience`, `summary`, `implemented_by`,
 `implemented_commits`, `decision_note`, `depends_on`, `supersedes`,
@@ -55,6 +61,12 @@ them to new standard proposals. Put lifecycle relationships, implementation
 evidence, follow-up work, and related links in body sections such as
 `References`, `Implementation Notes`, `Follow-On Work`, and
 `Supersedes`/`Superseded By`.
+
+Use `Revision Notes` for changes to the proposal record itself after
+implementation. Use `Implementation Notes` for evidence about how the accepted
+decision was implemented, `Follow-On Work` for later work that does not change
+the decision, and `Supersedes`/`Superseded By` when another proposal changes or
+replaces the decision.
 
 When a repository has legacy proposals and no shared standard yet, ask the user
 whether to archive the legacy set before starting the standard or migrate the
@@ -121,6 +133,7 @@ Useful sections:
 - `Migration`
 - `Risks`
 - `Acceptance Scenarios`
+- `Revision Notes` after substantive edits to an implemented proposal
 
 Do not let task lists replace the decision. The implementation plan should
 follow from the decision, not define it indirectly.
@@ -137,6 +150,8 @@ criticizing section names:
 - `Acceptance Criteria`, `Acceptance Scenarios`, `검증 기준`, `완료 기준`, and
   `성공 기준` can carry observable acceptance.
 - `Next`, `Follow-On Work`, `후속`, and `후속 고려사항` can carry later work.
+- `Revision Notes`, `Change History`, `변경 기록`, and `수정 기록` can carry
+  substantive post-implementation edits to the proposal record.
 
 Keep supporting sections such as `Privacy`, `Storage Boundary`, `Migration`,
 `Risks`, and `References` when they expose decision risk, compatibility,
