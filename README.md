@@ -23,7 +23,6 @@ maintaining decision proposals, and writing concise docs.
 | `ub-workspace` | Operate multi-repo workspaces safely. |
 | `ub-proposals` | Draft, review, and refactor decision-first development proposals. |
 | `ub-writing` | Draft, rewrite, and review project technical docs. |
-| `ub-skill-catalog` | Maintain and share Uraniborg public skills. |
 
 ## Install
 
@@ -47,18 +46,11 @@ npx skills add uraniborg-ai/skills \
   --skill ub-dev-env \
   --skill ub-workspace \
   --skill ub-proposals \
-  --skill ub-writing \
-  --skill ub-skill-catalog
+  --skill ub-writing
 ```
 
 Use the `npx skills` CLI options when you need to target a specific supported
 agent or install location.
-
-Install `ub-skill-catalog`:
-
-```sh
-npx skills add uraniborg-ai/skills --skill ub-skill-catalog
-```
 
 Install one skill globally:
 

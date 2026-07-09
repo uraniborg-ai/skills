@@ -79,6 +79,29 @@ UV_CACHE_DIR=.uv-cache uv run ruff format .
 UV_CACHE_DIR=.uv-cache uv run ruff format --check .
 ```
 
+## Release
+
+- Keep README install examples, `CHANGELOG.md`, and
+  `tests/smoke/check_structure.py` aligned with the public skill set.
+- For public skill additions or removals, update `package.json` with the next
+  semantic version and move user-visible changelog entries from `Unreleased` to
+  a dated release section.
+- Confirm local catalog discovery before release:
+
+  ```sh
+  npx skills add . --list
+  ```
+
+- Validate release candidates with `npm run smoke`, `git diff --check`,
+  Ruff format check when Python files changed, and
+  `npm_config_cache=.npm-cache npm pack --dry-run`.
+- Use the Git tag as the release source of truth. After pushing a release tag,
+  confirm the public catalog with:
+
+  ```sh
+  npx skills add uraniborg-ai/skills --list
+  ```
+
 ## Validation
 
 - Run `npm run smoke` after adding, removing, or changing a public skill.

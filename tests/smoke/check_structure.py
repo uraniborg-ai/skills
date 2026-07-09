@@ -15,7 +15,6 @@ EXPECTED = {
     "ub-pdf-reader",
     "ub-presentation",
     "ub-proposals",
-    "ub-skill-catalog",
     "ub-workspace",
     "ub-youtube",
     "ub-uv",

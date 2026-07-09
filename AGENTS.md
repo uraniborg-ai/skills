@@ -15,6 +15,7 @@ bundled tools, OpenAI metadata, or skill development conventions.
 - Writing
 - OpenAI Metadata
 - Python Scripts
+- Release
 - Validation
 
 When changing `docs/development.md` sections, update this table of contents in

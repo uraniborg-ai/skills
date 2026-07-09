@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.7.0 - 2026-07-09
+
+- Remove `ub-skill-catalog` from the public skill catalog.
+
 ## 0.6.0 - 2026-07-09
 
 - Remove `ub-finance-data` from the public skill catalog. Existing users should
