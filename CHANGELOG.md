@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Remove `ub-finance-data` from the public skill catalog. Finance data work now
+  lives outside this reusable skill set; use the project repository directly
+  instead of installing `$ub-finance-data`.
+
 ## 0.5.1 - 2026-07-04
 
 - Remove fixed `--agent` targets from README and `ub-skill-catalog`
