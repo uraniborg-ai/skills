@@ -2,9 +2,11 @@
 
 ## Unreleased
 
-- Remove `ub-finance-data` from the public skill catalog. Finance data work now
-  lives outside this reusable skill set; use the project repository directly
-  instead of installing `$ub-finance-data`.
+## 0.6.0 - 2026-07-09
+
+- Remove `ub-finance-data` from the public skill catalog. Existing users should
+  refresh installed skills with `npx skills update --global` or their
+  project-local update command so removed catalog entries are cleaned up.
 - Expand `ub-proposals` with post-implementation edit guidance, including when
   implemented proposals need `Revision Notes` with the change and rationale.
 - Add `ub-git` for conservative single-repository Git workflows, including

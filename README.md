@@ -76,6 +76,7 @@ npx skills update --global
 ```
 
 Global updates can affect installed skills beyond this `ub-*` catalog.
+Updates also clean up skills that have been removed from the public catalog.
 
 ## Development
 
