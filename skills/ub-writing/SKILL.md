@@ -1,6 +1,6 @@
 ---
 name: ub-writing
-description: Draft, rewrite, or review project technical documentation and Git commit messages for concise, clear, context-efficient writing. Use for contributor-facing docs, README updates, development guides, architecture notes, changelogs, agent instructions, generated-doc review, commit message draft or review requests, and technical doc routing when Codex should clarify audience and job, preserve source-of-truth boundaries, reduce repetition, or identify ambiguity.
+description: Draft, rewrite, or review project technical documentation for concise, clear, context-efficient writing. Use for contributor-facing docs, README updates, development guides, architecture notes, changelogs, agent instructions, generated-doc review, and technical doc routing when Codex should clarify audience and job, preserve source-of-truth boundaries, reduce repetition, or identify ambiguity.
 ---
 
 # UB Writing
@@ -11,8 +11,7 @@ and cheap for humans and agents to load. Treat context as a limited resource.
 ## Scope
 
 Use this skill for technical docs, contributor-facing operating docs,
-maintainer notes, changelogs, generated-doc review, Git commit messages, and
-agent instructions.
+maintainer notes, changelogs, generated-doc review, and agent instructions.
 
 Do not use it by default for literary writing, essays, blog posts, marketing
 copy, personal notes, presentation prose, resumes, or prompt experiments unless
@@ -44,13 +43,8 @@ For generated reference docs, review the output but do not edit generated files
 directly. Route wording fixes to source comments, docstrings, generator code,
 templates, config, wrapper README text, or regenerate commands.
 
-For Git commit message requests, treat commit messages as `maintainer-facing`
-writing. Inspect local message rules first: `AGENTS.md`, `CONTRIBUTING.md`,
-`docs/commit-conventions.md`, release docs, relevant proposals, or maintainer
-docs. If local message rules exist, follow them. If no explicit local rule
-exists, use Conventional Commits v1.0.0 in English: choose the type and optional
-scope, use an imperative lowercase description with no trailing period, and mark
-breaking changes with `!` or a `BREAKING CHANGE:` footer.
+For Git commit messages, staging, commits, branches, or repository state, use
+`$ub-git`.
 
 ## Writing Standard
 

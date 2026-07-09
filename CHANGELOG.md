@@ -7,6 +7,13 @@
   instead of installing `$ub-finance-data`.
 - Expand `ub-proposals` with post-implementation edit guidance, including when
   implemented proposals need `Revision Notes` with the change and rationale.
+- Add `ub-git` for conservative single-repository Git workflows, including
+  status, staging, commits, commit messages, remote sync, first commits, Git
+  LFS, and sensitive-file review.
+- Move commit message guidance from `ub-writing` to `ub-git` so `ub-writing`
+  focuses on project technical documentation.
+- Refocus `ub-workspace` on multi-repository workspace orchestration and defer
+  repository-level Git safety rules to `ub-git`.
 
 ## 0.5.1 - 2026-07-04
 

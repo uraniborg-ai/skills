@@ -1,6 +1,6 @@
 ---
 name: ub-workspace
-description: Manage a local workspace containing many sibling Git repositories with a `.ub-workspace/config.toml` control file. Use when Codex needs to inventory projects, summarize dirty worktrees, compare branches with upstreams, separate references repositories, run fetch-oriented audits, perform only safe fast-forward pulls, prepare first commits with Git LFS, or report push restrictions for workspace repositories.
+description: Manage a local workspace containing many sibling Git repositories with a `.ub-workspace/config.toml` control file. Use when Codex needs to inventory projects, summarize repository status across a workspace, compare branches with upstreams, separate references repositories, run fetch-oriented audits, or apply safe multi-repository sync workflows using ub-git repository safety rules.
 metadata:
   version: 0.1.0
   stability: experimental
@@ -23,14 +23,9 @@ Use this skill to operate a multi-repository workspace from a local
   defaults.
 - Separate `references/*` from regular projects when the config defines a
   references group.
-- Do not push automatically. Report `push = "explicit-approval"` and
-  `push = "never"` as policy restrictions.
-- Fetch or pull only when the user explicitly asks for a sync or fresh remote
-  comparison.
-- Pull only with `git pull --ff-only`, and only when the current branch can
-  fast-forward to its upstream.
-- Skip automatic pull for dirty repositories unless the user explicitly asks to
-  include dirty worktrees.
+- Apply `$ub-git` for repository-level safety: explicit remote operations,
+  fast-forward-only pulls, dirty worktree protection, push restrictions, first
+  commit checks, and Git LFS review.
 
 ## Workflows
 
@@ -58,13 +53,5 @@ For an actual conservative sync:
 uv run --script skills/ub-workspace/scripts/workspace_sync.py --root /Users/hyounggyu/Works
 ```
 
-## First Commit And LFS
-
-When preparing a new repository in a workspace:
-
-- Add `.gitignore` before staging generated files.
-- Track large binary source files with Git LFS before `git add`.
-- Verify ignored paths with `git check-ignore -v`.
-- Verify LFS pointers with `git lfs status` or `git lfs ls-files`.
-- Treat pushes containing private documents, medical data, training scans, or
-  other restricted material as explicit-approval operations.
+For first commits, Git LFS, staging, commits, pushes, or single-repository Git
+decisions inside a workspace, use `$ub-git`.

@@ -1,11 +1,11 @@
 ---
 title: Limit UB Writing To Project Technical Documentation
-description: ub-writing의 적용 범위를 프로젝트 기술 문서와 Git commit message로 제한하고 문서 라우팅, proposal handoff, 생성 문서, agent 지침 source-of-truth를 정리한다.
+description: ub-writing의 적용 범위를 프로젝트 기술 문서로 제한하고 문서 라우팅, proposal handoff, 생성 문서, agent 지침 source-of-truth를 정리한다.
 author:
   - Hyounggyu Kim <code@hyounggyu.com>
 status: implemented
 created_at: 2026-06-28T00:00:00+09:00
-updated_at: 2026-06-28T10:57:30+09:00
+updated_at: 2026-07-09T00:00:00+09:00
 ---
 
 # Limit UB Writing To Project Technical Documentation
@@ -30,8 +30,7 @@ contributor-facing operating docs를 정리하는 스킬로 제한한다. 특정
 - Proposal, RFC, ADR, decision record 작업은 `$ub-proposals`와 함께 다룬다.
 - 생성된 reference Markdown은 직접 편집하지 않고 생성 원천이나 generator 쪽으로
   변경을 라우팅한다.
-- `ub-writing`은 Git commit message 작성을 지원한다. 로컬 규칙이 없으면
-  Conventional Commits v1.0.0을 기본값으로 쓰고, 기본 언어는 영어로 한다.
+- Git commit message 작성과 Git 작업 규칙은 `$ub-git`으로 분리한다.
 
 ## 문서 라우팅
 
@@ -66,34 +65,6 @@ frontmatter, non-goals, acceptance scenarios, proposal lifecycle이면 먼저
   기반 fallback으로 진행하되, fallback임을 밝히고 열린 가정을 남긴다.
 - 설치 자체는 사용자의 명시적 승인 없이는 실행하지 않는다.
 
-## Commit Message Writing
-
-`ub-writing`은 Git commit message 작성과 리뷰를 지원한다. Commit message는 짧은
-불변 개발 기록이므로 일반 문서보다 더 좁은 규칙을 적용한다.
-
-- 먼저 로컬 규칙을 찾는다: `AGENTS.md`, `CONTRIBUTING.md`,
-  `docs/commit-conventions.md`, release docs, 가까운 maintainer docs.
-- 로컬 규칙이 있으면 그 규칙을 우선한다.
-- 로컬 규칙이 없으면 [Conventional Commits v1.0.0] 형식을 기본값으로 쓴다.
-- 기본 언어는 영어다.
-- subject는 imperative mood, lowercase description, trailing period 없음으로 쓴다.
-- staged changes가 있으면 `git diff --cached` 기준으로 작성한다.
-- staged changes가 없으면 unstaged diff 기준 후보를 만들 수 있지만, 아직 staged
-  기준 메시지가 아님을 밝힌다.
-- unrelated changes가 섞여 있으면 하나의 메시지로 뭉개지 않고 commit split을
-  제안한다.
-- breaking change가 있으면 `!` 또는 `BREAKING CHANGE:` footer를 사용한다.
-- `ub-writing`은 메시지를 제안하거나 리뷰할 뿐, 사용자의 명시적 요청 없이
-  `git commit`을 실행하지 않는다.
-
-기본 형식:
-
-```text
-<type>[optional scope][!]: <description>
-```
-
-[Conventional Commits v1.0.0]: https://www.conventionalcommits.org/en/v1.0.0/
-
 ## 작성 방식
 
 - 문서 작업 시작 시 audience/job을 `user-facing`, `contributor-facing`,
@@ -116,8 +87,7 @@ frontmatter, non-goals, acceptance scenarios, proposal lifecycle이면 먼저
 - `agents/openai.yaml`의 `short_description`은 project technical docs 중심으로
   좁힌다.
 - README의 `ub-writing` 설명과 `CHANGELOG.md`의 `Unreleased` 항목을 갱신한다.
-- Commit message 작성 지침은 `SKILL.md`에는 핵심 trigger만 두고,
-  `references/project-doc-structure.md`에 세부 규칙을 둔다.
+- Commit message 작성 지침은 `$ub-git`으로 옮기고 `ub-writing`에서 제거한다.
 
 ## 비목표
 
@@ -139,10 +109,7 @@ frontmatter, non-goals, acceptance scenarios, proposal lifecycle이면 먼저
   없으면 필요성을 설명한 뒤 새 문서를 제안한다.
 - "AGENTS.md 만들어줘" 요청이 없으면 `AGENTS.md` 생성을 기본 제안하지 않는다.
 - Proposal 작성 요청은 `$ub-proposals` 확인과 handoff 규칙을 따른다.
-- "커밋 메시지 작성해줘" 요청은 로컬 규칙을 먼저 확인하고, 없으면 영어
-  Conventional Commits 형식으로 제안한다.
-- staged changes가 있으면 staged diff 기준 메시지를 작성하고, unrelated changes가
-  섞여 있으면 commit split을 제안한다.
+- "커밋 메시지 작성해줘" 요청은 `$ub-git`으로 라우팅된다.
 - 시, 에세이, 블로그 초안 작성 요청은 기본적으로 `ub-writing` 적용 대상이 아니다.
 - 생성된 reference Markdown 문구 문제는 직접 수정 대신 generator/source update로
   안내한다.
@@ -157,3 +124,10 @@ git diff --check
 ## 열린 결정
 
 현재 이 제안서의 수용을 막는 열린 결정은 없다.
+
+## Revision Notes
+
+- 2026-07-09: Moved Git commit message ownership from `ub-writing` to
+  `ub-git`. `ub-writing` now stays focused on project technical documentation,
+  while `ub-git` owns repository state, staging, commits, and commit message
+  rules.
