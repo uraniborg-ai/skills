@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.8.0 - 2026-08-01
+
+- Add `ub-web-reader` for provenance-preserving webpage collection with
+  Trafilatura and readability-lxml plus markdownify extraction engines.
+
 ## 0.7.0 - 2026-07-09
 
 - Remove `ub-skill-catalog` from the public skill catalog.

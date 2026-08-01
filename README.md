@@ -3,10 +3,10 @@
 Reusable agent skills for scientific and engineering work.
 
 This repository is a small skill catalog for workflows that researchers and
-engineers tend to repeat across many projects: reading PDFs, working with
-Jupyter notebooks, collecting YouTube research notes, producing narrated
-presentations, running Python projects with uv, operating Git repositories,
-maintaining decision proposals, and writing concise docs.
+engineers tend to repeat across many projects: reading PDFs and web pages,
+working with Jupyter notebooks, collecting YouTube research notes, producing
+narrated presentations, running Python projects with uv, operating Git
+repositories, maintaining decision proposals, and writing concise docs.
 
 ## Skills
 
@@ -16,6 +16,7 @@ maintaining decision proposals, and writing concise docs.
 | `ub-jupyter` | Inspect, edit, validate, and explicitly execute Jupyter notebooks. |
 | `ub-presentation` | Author, caption, and render structured narrated presentations. |
 | `ub-youtube` | Collect YouTube transcripts and playlist research notes. |
+| `ub-web-reader` | Collect public web pages as source-preserving Markdown. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-git` | Operate Git repositories safely. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
@@ -40,6 +41,7 @@ npx skills add uraniborg-ai/skills \
   --skill ub-jupyter \
   --skill ub-presentation \
   --skill ub-youtube \
+  --skill ub-web-reader \
   --skill ub-uv \
   --skill ub-git \
   --skill ub-codex \

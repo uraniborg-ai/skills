@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Web Reader"
+  short_description: "Collect web pages as source-preserving Markdown"
+  default_prompt: "Use $ub-web-reader to collect this public web page as source-preserving Markdown, inspect extraction quality, and preserve source metadata before summarizing it."

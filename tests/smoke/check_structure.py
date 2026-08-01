@@ -18,6 +18,7 @@ EXPECTED = {
     "ub-workspace",
     "ub-youtube",
     "ub-uv",
+    "ub-web-reader",
     "ub-writing",
 }
 
