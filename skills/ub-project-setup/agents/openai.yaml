@@ -1,0 +1,4 @@
+interface:
+  display_name: "UB Project Setup"
+  short_description: "Set up project development guidance"
+  default_prompt: "Use $ub-project-setup to establish or improve a project development environment, decision proposals, and technical documentation."

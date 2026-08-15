@@ -1,4 +1,0 @@
-interface:
-  display_name: "UB Writing"
-  short_description: "Write project technical docs"
-  default_prompt: "Use $ub-writing to draft, rewrite, review, or route project technical docs for clarity, concision, source-of-truth boundaries, ambiguity, and stable terminology."

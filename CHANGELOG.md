@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+## 0.8.0 - 2026-08-15
+
+- Remove `ub-pdf-reader` from the public catalog. Existing users should
+  refresh their skill installations to remove the obsolete copy.
+- Replace `ub-dev-env`, `ub-proposals`, and `ub-writing` with
+  `ub-project-setup`, which establishes or improves project development
+  environments, decision proposals, and technical documentation. Existing
+  users should replace the old skill invocations when refreshing installations.
+- Remove `ub-presentation`, `ub-youtube`, and `ub-workspace` from the public
+  catalog. These workflows are now maintained as project-local tools rather
+  than distributed agent skills. Existing installed copies remain until users
+  refresh their skill installations.
+
 ## 0.7.0 - 2026-07-09
 
 - Remove `ub-skill-catalog` from the public skill catalog.

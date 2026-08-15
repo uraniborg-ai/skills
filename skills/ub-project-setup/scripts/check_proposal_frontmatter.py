@@ -3,7 +3,7 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-"""Validate proposal frontmatter for the UB Proposals skill."""
+"""Validate proposal frontmatter for the UB Project Setup skill."""
 
 from __future__ import annotations
 

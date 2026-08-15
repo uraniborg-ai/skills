@@ -1,4 +1,0 @@
-interface:
-  display_name: "UB Presentation"
-  short_description: "Author, caption, and render structured presentations"
-  default_prompt: "Use $ub-presentation to create, validate, narrate, caption, or render a presentation directory with segmented narration, fixed artifact directories, and video exports."

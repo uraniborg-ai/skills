@@ -1,4 +1,0 @@
-interface:
-  display_name: "UB Workspace"
-  short_description: "Operate multi-repo workspaces safely"
-  default_prompt: "Use $ub-workspace to inventory my workspace, summarize Git status, and run safe repository sync workflows."

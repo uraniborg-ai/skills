@@ -3,26 +3,19 @@
 Reusable agent skills for scientific and engineering work.
 
 This repository is a small skill catalog for workflows that researchers and
-engineers tend to repeat across many projects: reading PDFs, working with
-Jupyter notebooks, collecting YouTube research notes, producing narrated
-presentations, running Python projects with uv, operating Git repositories,
-maintaining decision proposals, and writing concise docs.
+engineers tend to repeat across many projects: working with Jupyter notebooks,
+running Python projects with uv, operating Git repositories,
+and establishing project development environments, decisions, and docs.
 
 ## Skills
 
 | Skill | Purpose |
 | --- | --- |
-| `ub-pdf-reader` | Search, inspect, render, and cite PDF evidence. |
 | `ub-jupyter` | Inspect, edit, validate, and explicitly execute Jupyter notebooks. |
-| `ub-presentation` | Author, caption, and render structured narrated presentations. |
-| `ub-youtube` | Collect YouTube transcripts and playlist research notes. |
 | `ub-uv` | Use uv consistently for Python project setup and execution. |
 | `ub-git` | Operate Git repositories safely. |
 | `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
-| `ub-dev-env` | Plan team development environments. |
-| `ub-workspace` | Operate multi-repo workspaces safely. |
-| `ub-proposals` | Draft, review, and refactor decision-first development proposals. |
-| `ub-writing` | Draft, rewrite, and review project technical docs. |
+| `ub-project-setup` | Establish or improve development environments, proposals, and technical docs. |
 
 ## Install
 
@@ -36,27 +29,15 @@ Install the default research skill set:
 
 ```sh
 npx skills add uraniborg-ai/skills \
-  --skill ub-pdf-reader \
   --skill ub-jupyter \
-  --skill ub-presentation \
-  --skill ub-youtube \
   --skill ub-uv \
   --skill ub-git \
   --skill ub-codex \
-  --skill ub-dev-env \
-  --skill ub-workspace \
-  --skill ub-proposals \
-  --skill ub-writing
+  --skill ub-project-setup
 ```
 
 Use the `npx skills` CLI options when you need to target a specific supported
 agent or install location.
-
-Install one skill globally:
-
-```sh
-npx skills add uraniborg-ai/skills --skill ub-pdf-reader --global
-```
 
 Check installed copies by inspecting `~/.agents/.skill-lock.json`,
 `~/.agents/skills`, and `~/.claude/skills`.

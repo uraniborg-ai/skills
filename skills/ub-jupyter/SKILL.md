@@ -1,6 +1,6 @@
 ---
 name: ub-jupyter
-description: Work with local Jupyter notebooks in scientific and engineering projects. Use when Codex needs to inspect, summarize, edit, validate, review, or explicitly execute .ipynb notebooks; diagnose kernel, dependency, cwd, output, metadata, or data-path issues; coordinate notebook execution with project setup using ub-dev-env and uv using ub-uv; or handle Jupytext, nbdime, and nbstripout review hygiene.
+description: Work with local Jupyter notebooks in scientific and engineering projects. Use when Codex needs to inspect, summarize, edit, validate, review, or explicitly execute .ipynb notebooks; diagnose kernel, dependency, cwd, output, metadata, or data-path issues; coordinate notebook execution with project setup using ub-project-setup and uv using ub-uv; or handle Jupytext, nbdime, and nbstripout review hygiene.
 ---
 
 # UB Jupyter
@@ -18,7 +18,7 @@ gateways.
 3. For `.ipynb` structure, metadata, outputs, or validation, read
    `references/notebook-format.md`.
 4. For execution, read `references/project-execution.md` and use the
-   `ub-dev-env` and `ub-uv` rules when those skills are available.
+   `ub-project-setup` and `ub-uv` rules when those skills are available.
 5. For Jupytext, nbdime, output stripping, or reviewable diffs, read
    `references/review.md`.
 6. Report the execution environment, cwd, runner, output policy, and changed
