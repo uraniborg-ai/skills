@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.8.2 - 2026-08-16
+
 - Teach `ub-project-setup` to inspect project-local agent skills, search the
   `uraniborg-ai` owner for relevant `ub-*` skills, and optionally propose the
   global Vercel `find-skills` skill through `npx skills` with explicit scope,
