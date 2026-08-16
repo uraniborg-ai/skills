@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.8.1 - 2026-08-16
+
 - Expand `ub-project-setup` around development-environment analysis and current
   project documentation, including `.python-version`, `.ruff.toml`, Homebrew,
   Node.js, uv, GitHub CLI, agent guidance links, and optional PEP-inspired
