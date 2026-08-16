@@ -1,4 +1,4 @@
 interface:
   display_name: "UB Project Setup"
-  short_description: "Set up project environment and docs"
-  default_prompt: "Use $ub-project-setup to inspect and document a project development environment, agent guidance, and technical documentation; record proposals or TODOs only when useful."
+  short_description: "Set up project environment, agent skills, and docs"
+  default_prompt: "Use $ub-project-setup to inspect and document a project development environment, search for relevant ub-* skills with npx skills find --owner uraniborg-ai, optionally propose the global Vercel find-skills skill, and maintain agent guidance and technical documentation; record proposals or TODOs only when useful."

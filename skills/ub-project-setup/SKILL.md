@@ -1,6 +1,6 @@
 ---
 name: ub-project-setup
-description: Establish or improve project-level development guidance by inspecting repositories, planning development environments, and creating or refining technical documentation. Use when Codex needs to set up a new project, fill source-of-truth gaps in an existing project, document contributor workflows or architecture, or record an optional proposal or TODO. Treat implemented proposals as immutable and add annotations only when explicitly requested. Do not use for ordinary code implementation, Git operations, Python execution, or generic writing.
+description: Establish or improve project-level development guidance by inspecting repositories, planning development environments, recommending relevant agent skills, and creating or refining technical documentation. Use when Codex needs to set up a new project, fill source-of-truth gaps in an existing project, document contributor workflows or architecture, or record an optional proposal or TODO. Treat implemented proposals as immutable and add annotations only when explicitly requested. Do not use for ordinary code implementation, Git operations, Python execution, or generic writing.
 ---
 
 # UB Project Setup
@@ -14,11 +14,12 @@ project setup and to focused improvements in an existing repository.
 
 1. Inspect local guidance and setup sources before recommending changes:
    `AGENTS.md`, `CLAUDE.md`, `README*`, `CONTRIBUTING*`, relevant `docs/`,
-   dependency manifests, lockfiles, version files, Docker files, CI config,
-   and documented bootstrap scripts.
+   project-local agent skill directories such as `.agents/skills/` and
+   `.claude/skills/`, dependency manifests, lockfiles, version files, Docker
+   files, CI config, and documented bootstrap scripts.
 2. Classify the task as development environment, technical documentation,
-   agent guidance, or optional proposal/TODO recording. Proposal work is a
-   supporting mode, not the default purpose of this skill.
+   agent guidance or skill setup, or optional proposal/TODO recording. Proposal
+   work is a supporting mode, not the default purpose of this skill.
 3. Identify explicit user choices, existing sources of truth, and the smallest
    documentation gap. Preserve a declared Conda or other environment instead
    of replacing it with the defaults below.
@@ -61,6 +62,34 @@ project setup and to focused improvements in an existing repository.
   for the default workflow. Use Homebrew for system tools, direct Homebrew
   Node.js for a single Node version, and nvm only when multiple Node versions
   or project constraints require it.
+- Default to Node.js and `npx skills` for agent-skill discovery and
+  installation. If the project would benefit from reusable scientific or
+  engineering workflows, search the Uraniborg owner and propose relevant
+  `ub-*` skills from the search results:
+  `npx skills find --owner uraniborg-ai`. Do not install the whole catalog
+  automatically.
+- If the user needs a general skill-discovery workflow and does not already
+  have one, optionally propose the Vercel `find-skills` skill as a global tool:
+
+  ```sh
+  npx skills add https://github.com/vercel-labs/skills \
+    --skill find-skills \
+    --global
+  ```
+
+  Treat this as a separate global installation requiring explicit approval
+  and an agent target when multiple agents are available.
+- Match `ub-*` recommendations to the observed work: `ub-project-setup` for
+  environment and documentation guidance, `ub-uv` for Python environments and
+  dependencies, `ub-jupyter` for notebooks, `ub-git` for Git workflows, and
+  `ub-codex` when Codex sandbox, cache, permission, or tool issues are part of
+  the problem.
+- Prefer project-scoped installation with an explicit `--agent` target. Use
+  `--global` only when the user wants the skill across projects. Treat
+  `npx skills add`, `update`, and `remove` as mutations requiring approval;
+  use `--yes` only after the source, skills, scope, and target agent are clear.
+- After an approved skill installation, verify with `npx skills list` and
+  inspect the target agent directory and any generated links or metadata.
 - Use `.python-version` for the local Python version, `requires-python` for
   supported ranges, and `uv.lock` for resolved dependencies. Do not invent an
   exact Python version or silently resolve a conflict.
@@ -91,11 +120,13 @@ project setup and to focused improvements in an existing repository.
 - Do not use this skill for ordinary feature implementation, code debugging,
   generic prose, marketing copy, personal writing, or presentation scripts.
 - Treat installs, upgrades, shell-profile edits, service startup, login,
-  dependency changes, and project file writes as mutation.
+  dependency changes, agent-skill changes, and project file writes as
+  mutation.
 
 ## Output
 
 Report the inspected sources, selected modes, source-of-truth decisions,
-environment findings and recommendations, created or updated documentation,
+environment findings and recommendations, relevant `ub-*` skill candidates,
+the proposed source/scope/agent target, created or updated documentation,
 agent-file links, validation results, unresolved conflicts, and any actions
 that still require explicit approval.

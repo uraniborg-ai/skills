@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Teach `ub-project-setup` to inspect project-local agent skills, search the
+  `uraniborg-ai` owner for relevant `ub-*` skills, and optionally propose the
+  global Vercel `find-skills` skill through `npx skills` with explicit scope,
+  target-agent, review, and approval guidance.
+
 ## 0.8.1 - 2026-08-16
 
 - Expand `ub-project-setup` around development-environment analysis and current
