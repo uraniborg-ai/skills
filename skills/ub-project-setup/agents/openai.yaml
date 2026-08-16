@@ -1,4 +1,4 @@
 interface:
   display_name: "UB Project Setup"
-  short_description: "Set up project development guidance"
-  default_prompt: "Use $ub-project-setup to establish or improve a project development environment, decision proposals, and technical documentation."
+  short_description: "Set up project environment and docs"
+  default_prompt: "Use $ub-project-setup to inspect and document a project development environment, agent guidance, and technical documentation; record proposals or TODOs only when useful."

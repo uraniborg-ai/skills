@@ -9,8 +9,10 @@ metadata:
 
 # UB uv
 
-Use `uv` as the default Python entrypoint when a project has `pyproject.toml`,
-`uv.lock`, or existing uv usage.
+Use `uv` as the default Python entrypoint for scientific, engineering, data
+analysis, and research software projects when the project does not explicitly
+choose another environment manager such as Conda. Respect existing project
+conventions before introducing uv.
 
 ## Commands
 
@@ -27,9 +29,16 @@ uv run python -m py_compile path/to/file.py
 ## Rules
 
 - Prefer `uv run` over bare `python`, `python3`, or `pip` for project work.
-- Keep `pyproject.toml` and `uv.lock` as the dependency source of truth.
-- Keep the project Python version in `pyproject.toml` with `requires-python`;
-  do not create `.python-version` as the first source of truth for a repo.
+- Keep `pyproject.toml` dependency metadata and `uv.lock` as dependency sources
+  of truth.
+- Use `.python-version` as the local default Python interpreter when it exists
+  or when the project setup establishes an exact version. Use
+  `pyproject.toml` `requires-python` as the supported version range and
+  dependency-resolution constraint.
+- If `.python-version` and `requires-python` conflict, report the conflict and
+  ask the user before changing either file.
+- Do not invent an exact `.python-version` when the project only declares a
+  version range or has no reliable version source.
 - Do not hand-edit `uv.lock`.
 - Do not create ad hoc virtual environments inside the repository.
 - If a reusable dependency is a Python package used by the project, add it with
@@ -41,11 +50,12 @@ uv run python -m py_compile path/to/file.py
 
 ## Python Version
 
-When a project already has `pyproject.toml`, use its existing
-`project.requires-python` value. If the file exists but lacks
+When a project already has `pyproject.toml`, inspect both its existing
+`project.requires-python` value and `.python-version`. Keep the range and exact
+local interpreter as separate decisions. If `pyproject.toml` lacks
 `requires-python`, infer a conservative range from project tooling, lockfiles,
-CI, Docker images, or runtime docs. If there is no clear source, ask the user
-before choosing.
+CI, Docker images, or runtime docs. If there is no clear source for an exact
+local version, ask the user before creating `.python-version`.
 
 When a project has no `pyproject.toml`, ask the user before creating one. A
 minimal non-package Python tooling file usually looks like:

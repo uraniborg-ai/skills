@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Expand `ub-project-setup` around development-environment analysis and current
+  project documentation, including `.python-version`, `.ruff.toml`, Homebrew,
+  Node.js, uv, GitHub CLI, agent guidance links, and optional PEP-inspired
+  proposal/TODO records. Remove the proposal-specific frontmatter validator.
+
 ## 0.8.0 - 2026-08-15
 
 - Remove `ub-pdf-reader` from the public catalog. Existing users should
