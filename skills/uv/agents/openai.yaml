@@ -1,0 +1,4 @@
+interface:
+  display_name: "uv"
+  short_description: "Use uv for Python scripts and projects"
+  default_prompt: "Use $uv to run Python work with uv, .python-version for the local interpreter, requires-python for supported ranges, and script-local dependencies when appropriate."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "UB Git"
-  short_description: "Operate Git repositories safely"
-  default_prompt: "Use $ub-git to inspect repository state, stage changes, write commit messages, commit, sync branches, and push with conservative Git safety rules."

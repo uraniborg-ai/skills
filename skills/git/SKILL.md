@@ -1,9 +1,9 @@
 ---
-name: ub-git
+name: git
 description: Use conservative Git workflows for local repository status, diffs, staging, commits, commit messages, branch and upstream checks, fetch/pull/push safety, dirty worktree protection, first commits, Git LFS checks, and sensitive-file review. Use when Codex needs to inspect or change Git state, prepare or review commits, draft commit messages, sync branches, or decide safe Git commands in a single repository.
 ---
 
-# UB Git
+# Git
 
 Use this skill for single-repository Git work. Prefer read-only inspection
 before changing Git state, and protect user changes as the first constraint.
@@ -38,7 +38,7 @@ before changing Git state, and protect user changes as the first constraint.
   `.env` files, API keys, or other restricted material without explicit review
   and approval.
 - If Git commands fail because of Codex sandbox permissions, follow
-  `$ub-codex`.
+  `$codex`.
 
 ## Commit Messages
 

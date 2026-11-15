@@ -1,63 +1,50 @@
+---
+title: Uraniborg Skills
+description: Public agent skills for Python with uv, Git workflows, and Codex execution issues.
+status: active
+---
+
 # Uraniborg Skills
 
 Reusable agent skills for scientific and engineering work.
-
-This repository is a small skill catalog for workflows that researchers and
-engineers tend to repeat across many projects: working with Jupyter notebooks,
-running Python projects with uv, operating Git repositories,
-and establishing project development environments, decisions, and docs.
 
 ## Skills
 
 | Skill | Purpose |
 | --- | --- |
-| `ub-jupyter` | Inspect, edit, validate, and explicitly execute Jupyter notebooks. |
-| `ub-uv` | Use uv consistently for Python project setup and execution. |
-| `ub-git` | Operate Git repositories safely. |
-| `ub-codex` | Handle Codex sandbox, cache, and escalation issues. |
-| `ub-project-setup` | Establish or improve development environments, proposals, and technical docs. |
+| `uv` | Use uv for Python environments, dependencies, and execution. |
+| `git` | Inspect and operate Git repositories safely. |
+| `codex` | Handle Codex sandbox, permissions, caches, and escalation. |
 
 ## Install
 
-List available skills:
+List the catalog, then install the skills needed for your project:
 
 ```sh
 npx skills add uraniborg-ai/skills --list
+npx skills add uraniborg-ai/skills --skill uv git codex --agent codex
 ```
 
-Install the default research skill set:
+Run from the target project. Select another supported agent with `--agent`;
+use `--global` only when you want a user-level installation.
+Inspect installed skills with `npx skills list` and project installation
+records in `skills-lock.json`.
 
-```sh
-npx skills add uraniborg-ai/skills \
-  --skill ub-jupyter \
-  --skill ub-uv \
-  --skill ub-git \
-  --skill ub-codex \
-  --skill ub-project-setup
-```
+## Migration from 0.8.x
 
-Use the `npx skills` CLI options when you need to target a specific supported
-agent or install location.
+Version 0.9.0 renames `ub-uv`, `ub-git`, and `ub-codex` to `uv`, `git`, and
+`codex`. Update skill invocations and project guidance to the new names.
+`ub-project-setup` and `ub-jupyter` are removed with no automatic replacement.
 
-Check installed copies by inspecting `~/.agents/.skill-lock.json`,
-`~/.agents/skills`, and `~/.claude/skills`.
-
-Update installed skills:
-
-```sh
-npx skills update --global
-```
-
-Global updates can affect installed skills beyond this `ub-*` catalog.
-Updates also clean up skills that have been removed from the public catalog.
+Review and preserve local changes to installed skills, install and verify the
+new names, then remove the old copies using the installation tool for the same
+scope and agents. Do not assume an update automatically renames or removes
+every existing installation. Keep one source per skill name in a project.
 
 ## Development
 
-For contribution and skill authoring rules, read `AGENTS.md` and
-`docs/development.md`. The `docs/` directory holds the project development
-guidance.
-
-Check the skill catalog structure with:
+Read [AGENTS.md](AGENTS.md) and the [development guide](docs/development.md).
+Validate the public catalog with:
 
 ```sh
 npm run smoke
@@ -65,8 +52,6 @@ npm run smoke
 
 ## Versioning
 
-The repository uses semantic versions through Git tags and `CHANGELOG.md`.
-The repository tag is the release source of truth.
-
-Install from a Git tag or update from a release reference when you need a pinned
-version in a reproducible environment.
+Git release tags and `CHANGELOG.md` identify published releases. A version in
+the working tree is a release candidate until its tag is published.
+Use a release reference when a reproducible installation is needed.

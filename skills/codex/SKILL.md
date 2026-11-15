@@ -1,5 +1,5 @@
 ---
-name: ub-codex
+name: codex
 description: Handle Codex sandbox, permission, cache, dependency download, credential, escalation, validation, tool behavior, and dirty-worktree issues while running project commands. Use when Codex hits Operation not permitted, permission denied, home-directory cache failures, uv cache errors, Go cache errors, package download failures, approval questions, validation failures, or ambiguous failures that may be caused by restricted filesystem or network access.
 metadata:
   version: 0.2.0
@@ -7,7 +7,7 @@ metadata:
   domain: codex-operations
 ---
 
-# UB Codex
+# Codex
 
 Use this skill to adapt commands to Codex's sandbox without changing normal
 developer defaults.

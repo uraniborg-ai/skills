@@ -8,11 +8,9 @@ from pathlib import Path
 
 
 EXPECTED = {
-    "ub-codex",
-    "ub-git",
-    "ub-jupyter",
-    "ub-project-setup",
-    "ub-uv",
+    "codex",
+    "git",
+    "uv",
 }
 
 
@@ -20,6 +18,11 @@ def main() -> int:
     root = Path(__file__).resolve().parents[2]
     skills = root / "skills"
     missing = []
+    actual = {path.name for path in skills.iterdir() if path.is_dir()}
+    if actual != EXPECTED:
+        missing.append(
+            f"unexpected catalog: missing={EXPECTED - actual}, extra={actual - EXPECTED}"
+        )
     for name in sorted(EXPECTED):
         skill_dir = skills / name
         skill = skill_dir / "SKILL.md"

@@ -1,9 +1,17 @@
+---
+title: Development
+description: Authoring, validation, and release rules for the public three-skill catalog.
+status: active
+---
+
 # Development
 
 ## Direction
 
-- Prefix public skills with `ub-` to avoid collisions with built-in or personal
-  skills.
+- Use the skill names `uv`, `git`, and `codex` without a prefix.
+- This checkout owns public distribution, release documentation, and catalog
+  validation. Coordinate changes with the maintainer's development source;
+  reconcile public fixes before replacing a distribution snapshot.
 - Keep the public skill set small, practical, and reusable.
 - Prefer workflows that help researchers and engineers handle evidence,
   scripts, and project documentation.
@@ -34,9 +42,9 @@
 ## OpenAI Metadata
 
 - Use `agents/openai.yaml` for Codex-facing metadata.
-- Keep `display_name` short and use the `UB ...` naming style.
+- Keep `display_name` short and use the tool name without a `UB` prefix.
 - Keep `short_description` action-oriented and human-facing.
-- Include the canonical `$ub-*` skill invocation in `default_prompt`.
+- Include the canonical `$uv`, `$git`, or `$codex` invocation in `default_prompt`.
 - Do not add icons, brand colors, policy, or tool dependencies unless the skill
   actually needs them.
 
@@ -102,10 +110,15 @@ UV_CACHE_DIR=.uv-cache uv run ruff format --check .
   npx skills add uraniborg-ai/skills --list
   ```
 
+For renamed or removed skills, document migration and inspect installed-copy
+changes separately. Preserve historical names in past releases and completed
+proposals. Publish remotely only when publication is part of the requested task.
+
 ## Validation
 
 - Run `npm run smoke` after adding, removing, or changing a public skill.
-- Add new public skills to `tests/smoke/check_structure.py`.
+- Keep the exact expected catalog in `tests/smoke/check_structure.py` aligned
+  with approved additions, removals, and renames.
 - Make sure `agents/openai.yaml` stays aligned with the skill `name` and
   purpose.
 - Run Ruff format and format check after changing Python scripts.

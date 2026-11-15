@@ -1,3 +1,9 @@
+---
+title: AGENTS
+description: Entry point for maintaining the public Uraniborg skill catalog.
+status: active
+---
+
 # AGENTS
 
 This repository publishes reusable Uraniborg AI skills for scientific and

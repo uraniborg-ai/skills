@@ -1,5 +1,5 @@
 ---
-name: ub-uv
+name: uv
 description: Use uv for Python project setup, dependency management, script execution, validation, and one-off Python commands in scientific, engineering, data analysis, and research software projects. Trigger whenever Codex needs to run Python code, sync dependencies, inspect pyproject.toml or uv.lock, or choose between python, pip, venv, and uv.
 metadata:
   version: 0.2.0
@@ -7,7 +7,7 @@ metadata:
   domain: python
 ---
 
-# UB uv
+# uv
 
 Use `uv` as the default Python entrypoint for scientific, engineering, data
 analysis, and research software projects when the project does not explicitly
@@ -46,7 +46,7 @@ uv run python -m py_compile path/to/file.py
 - If a dependency is a native executable, document the system dependency instead
   of trying to install it with uv.
 - If uv fails because of sandbox, network, cache, or credential restrictions,
-  follow `$ub-codex` instead of repeating the same command.
+  follow `$codex` instead of repeating the same command.
 
 ## Python Version
 

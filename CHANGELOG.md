@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 0.9.0 - 2026-11-15
+
+- Rename `ub-uv`, `ub-git`, and `ub-codex` to `uv`, `git`, and `codex`,
+  including skill invocations and OpenAI UI metadata.
+- Remove `ub-project-setup` and `ub-jupyter` from the public catalog.
+  Neither has an automatic replacement.
+- Update installation and migration guidance. Review local changes, install
+  the new names, and then remove obsolete installed copies in the same scope.
+
 ## 0.8.2 - 2026-08-16
 
 - Teach `ub-project-setup` to inspect project-local agent skills, search the
